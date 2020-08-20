@@ -1,12 +1,12 @@
 import { json } from 'd3-fetch'
 import { select } from 'd3-selection'
 import * as topojson from 'topojson-client'
-import { geoPath, geoMercator } from 'd3-geo'
+import { geoPath, geoNaturalEarth1 } from 'd3-geo'
 
-const width = 800
-const height = 800
+const width = 1000
+const height = 600
 
-const prj = geoMercator()
+const prj = geoNaturalEarth1()
 const pathGen = geoPath().projection( prj )
 
 window.onload = function(){
@@ -22,6 +22,7 @@ window.onload = function(){
 			.data(countries.features)
 			.join('path')
 			.attr('d', d => pathGen(d) )
+			.attr('id', d => d.properties.ISO_A3 )
 			.attr('class','country')
 			.append('title')
 			.text( d => d.properties.NAME )

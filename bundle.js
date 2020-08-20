@@ -1020,12 +1020,9 @@
   var atan = Math.atan;
   var atan2 = Math.atan2;
   var cos = Math.cos;
-  var exp = Math.exp;
-  var log = Math.log;
   var sin = Math.sin;
   var sign = Math.sign || function(x) { return x > 0 ? 1 : x < 0 ? -1 : 0; };
   var sqrt = Math.sqrt;
-  var tan = Math.tan;
 
   function acos(x) {
     return x > 1 ? 0 : x < -1 ? pi : Math.acos(x);
@@ -1208,22 +1205,6 @@
     };
 
     return rotation;
-  }
-
-  function rotation(rotate) {
-    rotate = rotateRadians(rotate[0] * radians, rotate[1] * radians, rotate.length > 2 ? rotate[2] * radians : 0);
-
-    function forward(coordinates) {
-      coordinates = rotate(coordinates[0] * radians, coordinates[1] * radians);
-      return coordinates[0] *= degrees, coordinates[1] *= degrees, coordinates;
-    }
-
-    forward.invert = function(coordinates) {
-      coordinates = rotate.invert(coordinates[0] * radians, coordinates[1] * radians);
-      return coordinates[0] *= degrees, coordinates[1] *= degrees, coordinates;
-    };
-
-    return forward;
   }
 
   // Generates a circle centered at [0°, 0°], with a given radius and precision.
@@ -2827,59 +2808,36 @@
     };
   }
 
-  function mercatorRaw(lambda, phi) {
-    return [lambda, log(tan((halfPi + phi) / 2))];
+  function naturalEarth1Raw(lambda, phi) {
+    var phi2 = phi * phi, phi4 = phi2 * phi2;
+    return [
+      lambda * (0.8707 - 0.131979 * phi2 + phi4 * (-0.013791 + phi4 * (0.003971 * phi2 - 0.001529 * phi4))),
+      phi * (1.007226 + phi2 * (0.015085 + phi4 * (-0.044475 + 0.028874 * phi2 - 0.005916 * phi4)))
+    ];
   }
 
-  mercatorRaw.invert = function(x, y) {
-    return [x, 2 * atan(exp(y)) - halfPi];
+  naturalEarth1Raw.invert = function(x, y) {
+    var phi = y, i = 25, delta;
+    do {
+      var phi2 = phi * phi, phi4 = phi2 * phi2;
+      phi -= delta = (phi * (1.007226 + phi2 * (0.015085 + phi4 * (-0.044475 + 0.028874 * phi2 - 0.005916 * phi4))) - y) /
+          (1.007226 + phi2 * (0.015085 * 3 + phi4 * (-0.044475 * 7 + 0.028874 * 9 * phi2 - 0.005916 * 11 * phi4)));
+    } while (abs(delta) > epsilon && --i > 0);
+    return [
+      x / (0.8707 + (phi2 = phi * phi) * (-0.131979 + phi2 * (-0.013791 + phi2 * phi2 * phi2 * (0.003971 - 0.001529 * phi2)))),
+      phi
+    ];
   };
 
-  function geoMercator() {
-    return mercatorProjection(mercatorRaw)
-        .scale(961 / tau);
+  function geoNaturalEarth1() {
+    return projection(naturalEarth1Raw)
+        .scale(175.295);
   }
 
-  function mercatorProjection(project) {
-    var m = projection(project),
-        center = m.center,
-        scale = m.scale,
-        translate = m.translate,
-        clipExtent = m.clipExtent,
-        x0 = null, y0, x1, y1; // clip extent
+  const width = 1000;
+  const height = 600;
 
-    m.scale = function(_) {
-      return arguments.length ? (scale(_), reclip()) : scale();
-    };
-
-    m.translate = function(_) {
-      return arguments.length ? (translate(_), reclip()) : translate();
-    };
-
-    m.center = function(_) {
-      return arguments.length ? (center(_), reclip()) : center();
-    };
-
-    m.clipExtent = function(_) {
-      return arguments.length ? ((_ == null ? x0 = y0 = x1 = y1 = null : (x0 = +_[0][0], y0 = +_[0][1], x1 = +_[1][0], y1 = +_[1][1])), reclip()) : x0 == null ? null : [[x0, y0], [x1, y1]];
-    };
-
-    function reclip() {
-      var k = pi * scale(),
-          t = m(rotation(m.rotate()).invert([0, 0]));
-      return clipExtent(x0 == null
-          ? [[t[0] - k, t[1] - k], [t[0] + k, t[1] + k]] : project === mercatorRaw
-          ? [[Math.max(t[0] - k, x0), y0], [Math.min(t[0] + k, x1), y1]]
-          : [[x0, Math.max(t[1] - k, y0)], [x1, Math.min(t[1] + k, y1)]]);
-    }
-
-    return reclip();
-  }
-
-  const width = 800;
-  const height = 800;
-
-  const prj = geoMercator();
+  const prj = geoNaturalEarth1();
   const pathGen = geoPath().projection( prj );
 
   window.onload = function(){
@@ -2895,6 +2853,7 @@
   			.data(countries.features)
   			.join('path')
   			.attr('d', d => pathGen(d) )
+  			.attr('id', d => d.properties.ISO_A3 )
   			.attr('class','country')
   			.append('title')
   			.text( d => d.properties.NAME );
