@@ -3,5 +3,8 @@ html, body {
 	margin: 0;
 	padding: 0; }
 	
+svg path.country {
+	stroke-width: 0.5px;
+	stroke: white; }
 svg path.country#CAN {
 	fill: red; }
