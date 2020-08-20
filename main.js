@@ -1,44 +1,27 @@
-import { map, tileLayer, LatLng } from 'leaflet'
-import { GeodesicLine } from 'leaflet.geodesic'
-import { csv } from 'd3-fetch'
+import { json } from 'd3-fetch'
+import { select } from 'd3-selection'
+//import * as topojson from 'topojson-client'
+import { geoPath, geoMercator } from 'd3-geo'
 
+const width = 800
+const height = 800
 
-const attribution = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+const prj = geoMercator()
+const pathGen = geoPath().projection( prj )
 
-const basemapStyle = 'apfcanada/ckcxiyprg0wwf1kqrmu48n937'
+window.onload = function(){
+	const svg = select('svg#map')
+		.attr('width',width)
+		.attr('height',height)
 
-const publicToken = 'pk.eyJ1IjoiYXBmY2FuYWRhIiwiYSI6ImNrY3hpdzcwbzAwZzIydms3NGRtZzY2eXIifQ.E7PbT0YGmjJjLiLmyRWSuw'
-
-var theMap
-
-window.onload = function () {
-	theMap = map('map').setView([43.7,-79.5],3)
-	
-	tileLayer(
-		'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}',
-		{
-			'attribution': attribution,
-			'maxZoom': 18,
-			'id': basemapStyle,
-			'tileSize': 512,
-			'zoomOffset': -1,
-			'accessToken': publicToken
-		}
-	).addTo(theMap)
-
-	addSampleData()
-}
-
-function addSampleData(){
-	csv('./data/sample.csv').then( data => {
-		data.map( d => {
-			let orig = new LatLng(d.lat_from,d.lon_from)
-			let dest = new LatLng(d.lat_to,d.lon_to)
-			d.vector = new GeodesicLine(
-				[orig,dest], 
-				{ color: 'white', weight: 1, steps: 5, wrap: false }
-			).addTo(theMap)
-		} )
-		console.log( data )
+	json('data/countries.geojson').then( j => {
+		console.log(j)
+		svg.selectAll('path')
+			.data(j.features)
+			.join('path')
+			.attr('d', d => pathGen(d) )
+			.attr('class','country')
+			.append('title')
+			.text( d => d.properties.NAME )
 	} )
 }

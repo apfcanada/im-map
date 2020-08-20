@@ -1,36 +1,16 @@
 {
-  "name": "im-map",
-  "version": "1.0.0",
-  "description": "",
-  "main": "main.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/apfcanada/im-map.git"
-  },
-  "keywords": [
-    "map",
-    "asia",
-    "investment",
-    "trade"
-  ],
-  "author": "Nate Wessel",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/apfcanada/im-map/issues"
-  },
-  "homepage": "https://github.com/apfcanada/im-map#readme",
-  "dependencies": {
-    "d3-fetch": "^1.2.0",
-    "leaflet": "^1.6.0",
-    "leaflet.geodesic": "^2.5.4",
-    "proj4leaflet": "^1.0.2"
-  },
+  "name": "Investment Monitor Map",
+  "description": "Mapping foreign direct investment between Canada and the Asia Pacific",
+  "author": "Nate-Wessel",
   "devDependencies": {
     "@rollup/plugin-commonjs": "^13.0.2",
     "@rollup/plugin-node-resolve": "^8.4.0",
     "rollup": "^2.23.0"
+  },
+  "dependencies": {
+    "d3-fetch": "^1.2.0",
+    "d3-geo": "^1.12.1",
+    "d3-selection": "^1.4.2",
+    "topojson-client": "^3.1.0"
   }
 }
