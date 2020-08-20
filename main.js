@@ -1,6 +1,6 @@
 import { json } from 'd3-fetch'
 import { select } from 'd3-selection'
-//import * as topojson from 'topojson-client'
+import * as topojson from 'topojson-client'
 import { geoPath, geoMercator } from 'd3-geo'
 
 const width = 800
@@ -14,10 +14,12 @@ window.onload = function(){
 		.attr('width',width)
 		.attr('height',height)
 
-	json('data/countries.geojson').then( j => {
-		console.log(j)
+	json('data/countries.topojson').then( tjson => {
+		console.log(tjson)
+		let countries = topojson.feature(tjson,'countries')
+		console.log(countries)
 		svg.selectAll('path')
-			.data(j.features)
+			.data(countries.features)
 			.join('path')
 			.attr('d', d => pathGen(d) )
 			.attr('class','country')
