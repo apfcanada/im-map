@@ -2687,10 +2687,6 @@
     return transform;
   }
 
-  function projection(project) {
-    return projectionMutator(function() { return project; })();
-  }
-
   function projectionMutator(projectAt) {
     var project,
         k = 150, // scale
@@ -2808,36 +2804,58 @@
     };
   }
 
-  function naturalEarth1Raw(lambda, phi) {
-    var phi2 = phi * phi, phi4 = phi2 * phi2;
-    return [
-      lambda * (0.8707 - 0.131979 * phi2 + phi4 * (-0.013791 + phi4 * (0.003971 * phi2 - 0.001529 * phi4))),
-      phi * (1.007226 + phi2 * (0.015085 + phi4 * (-0.044475 + 0.028874 * phi2 - 0.005916 * phi4)))
-    ];
+  function conicProjection(projectAt) {
+    var phi0 = 0,
+        phi1 = pi / 3,
+        m = projectionMutator(projectAt),
+        p = m(phi0, phi1);
+
+    p.parallels = function(_) {
+      return arguments.length ? m(phi0 = _[0] * radians, phi1 = _[1] * radians) : [phi0 * degrees, phi1 * degrees];
+    };
+
+    return p;
   }
 
-  naturalEarth1Raw.invert = function(x, y) {
-    var phi = y, i = 25, delta;
-    do {
-      var phi2 = phi * phi, phi4 = phi2 * phi2;
-      phi -= delta = (phi * (1.007226 + phi2 * (0.015085 + phi4 * (-0.044475 + 0.028874 * phi2 - 0.005916 * phi4))) - y) /
-          (1.007226 + phi2 * (0.015085 * 3 + phi4 * (-0.044475 * 7 + 0.028874 * 9 * phi2 - 0.005916 * 11 * phi4)));
-    } while (abs(delta) > epsilon && --i > 0);
-    return [
-      x / (0.8707 + (phi2 = phi * phi) * (-0.131979 + phi2 * (-0.013791 + phi2 * phi2 * phi2 * (0.003971 - 0.001529 * phi2)))),
-      phi
-    ];
-  };
+  function equirectangularRaw(lambda, phi) {
+    return [lambda, phi];
+  }
 
-  function geoNaturalEarth1() {
-    return projection(naturalEarth1Raw)
-        .scale(175.295);
+  equirectangularRaw.invert = equirectangularRaw;
+
+  function conicEquidistantRaw(y0, y1) {
+    var cy0 = cos(y0),
+        n = y0 === y1 ? sin(y0) : (cy0 - cos(y1)) / (y1 - y0),
+        g = cy0 / n + y0;
+
+    if (abs(n) < epsilon) return equirectangularRaw;
+
+    function project(x, y) {
+      var gy = g - y, nx = n * x;
+      return [gy * sin(nx), g - gy * cos(nx)];
+    }
+
+    project.invert = function(x, y) {
+      var gy = g - y,
+          l = atan2(x, abs(gy)) * sign(gy);
+      if (gy * n < 0)
+        l -= pi * sign(x) * sign(gy);
+      return [l / n, g - sign(n) * sqrt(x * x + gy * gy)];
+    };
+
+    return project;
+  }
+
+  function geoConicEquidistant() {
+    return conicProjection(conicEquidistantRaw)
+        .scale(131.154)
+        .center([0, 13.9389]);
   }
 
   const width = 1000;
   const height = 600;
 
-  const prj = geoNaturalEarth1();
+  const prj = geoConicEquidistant();
   const pathGen = geoPath().projection( prj );
 
   window.onload = function(){

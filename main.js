@@ -1,12 +1,12 @@
 import { json } from 'd3-fetch'
 import { select } from 'd3-selection'
 import * as topojson from 'topojson-client'
-import { geoPath, geoNaturalEarth1 } from 'd3-geo'
+import { geoPath, geoConicEquidistant } from 'd3-geo'
 
 const width = 1000
 const height = 600
 
-const prj = geoNaturalEarth1()
+const prj = geoConicEquidistant()
 const pathGen = geoPath().projection( prj )
 
 window.onload = function(){
