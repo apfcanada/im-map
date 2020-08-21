@@ -3,8 +3,16 @@ html, body {
 	margin: 0;
 	padding: 0; }
 	
-svg path.country {
+svg #countries path {
 	stroke-width: 0.5px;
-	stroke: white; }
-svg path.country#CAN {
+	stroke: white;
+	fill: #333; }
+svg #countries path#CAN {
 	fill: red; }
+svg #graticules path {
+	fill: none;
+	stroke: #ccc; }
+svg #arcs path {
+	fill: none;
+	stroke: blue;
+	stroke-width: 2; }
