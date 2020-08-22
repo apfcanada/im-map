@@ -8,6 +8,7 @@
     "rollup": "^2.23.0"
   },
   "dependencies": {
+    "d3-drag": "^1.2.5",
     "d3-fetch": "^1.2.0",
     "d3-geo": "^1.12.1",
     "d3-selection": "^1.4.2",

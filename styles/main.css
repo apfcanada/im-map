@@ -3,6 +3,8 @@ html, body {
 	margin: 0;
 	padding: 0; }
 	
+svg {
+	background-color: #fbfbfb ; }
 svg #countries path {
 	stroke-width: 0.5px;
 	stroke: white;
