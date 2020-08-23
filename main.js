@@ -19,9 +19,9 @@ const sydney = [149,-33]
 
 const arcs = [ 
 	{ type:'LineString', coordinates:[ toronto, tokyo ] },
-	{ type:'LineString', coordinates:[ vancouver, tokyo ] },
-	{ type:'LineString', coordinates:[ vancouver, sydney ] },
-	{ type:'LineString', coordinates:[ toronto, sydney ] }
+	{ type:'LineString', coordinates:[ tokyo, sydney ] },
+	{ type:'LineString', coordinates:[ sydney, vancouver ] },
+	{ type:'LineString', coordinates:[ vancouver, toronto ] }
 ]
 
 var lambda = -vancouver[0]
@@ -29,11 +29,9 @@ var phi = -vancouver[1]
 var gamma = 0
 var zoomFactor = 1
 
-var prj = theProjection()
-	.scale( width * zoomFactor )
-	.translate( [ width/2, height/2 ] )
-	.rotate( [ lambda, phi, gamma ] )
-var pathGen = geoPath().projection( prj )
+var pathGen
+
+updateProjection()
 
 var graticuleGroup, countryGroup, arcGroup 
 
@@ -45,7 +43,7 @@ window.onload = function(){
 			.on('end',endDrag)
 		)
 		.call( zoom()
-			.scaleExtent([0.5,2])
+			.scaleExtent([1,2])
 			.on('zoom',zoomed)
 		)
 	graticuleGroup = select('g#graticules')
@@ -96,15 +94,12 @@ function zoomed(){
 }
 
 function updateProjection(){
-	prj = theProjection()
-		.scale( width * zoomFactor )
+	// set the projection from configured variables
+	let prj = theProjection()
+		.scale( width / 2 * zoomFactor )
 		.translate( [ width/2, height/2 ] )
 		.rotate( [ lambda, phi, gamma ] )
 	pathGen = geoPath().projection( prj )
-	updateMap()
-}
-
-function updateMap(){
 	select('#projected-map-elements')
 		.selectAll('path')
 		.attr('d', pathGen )

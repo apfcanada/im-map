@@ -10,13 +10,14 @@ svg {
 svg #countries path {
 	stroke-width: 0.5px;
 	stroke: white;
-	fill: #333; }
+	fill: #bbb; }
 svg #countries path#CAN {
 	fill: red; }
 svg #graticules path {
 	fill: none;
-	stroke: #ccc; }
+	stroke: #ccc;
+	stroke-width: 0.5; }
 svg #arcs path {
 	fill: none;
-	stroke: blue;
+	stroke: #333;
 	stroke-width: 2; }
