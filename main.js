@@ -3,16 +3,17 @@ import { select, event } from 'd3-selection'
 import * as topojson from 'topojson-client'
 import { 
 	geoPath, 
-	geoOrthographic, 
+	geoOrthographic as theProjection, 
 	geoGraticule
 } from 'd3-geo'
 import { drag } from 'd3-drag'
+import { zoom } from 'd3-zoom'
 
 const width = 700
 const height = width
 
 const toronto = [-79,43]
-const tokyo = [134,35]
+const tokyo = [139,36]
 const vancouver = [-123,49]
 const sydney = [149,-33]
 
@@ -23,15 +24,16 @@ const arcs = [
 	{ type:'LineString', coordinates:[ toronto, sydney ] }
 ]
 
-var lambda = -toronto[0]
-var phi = -toronto[1]
+var lambda = -vancouver[0]
+var phi = -vancouver[1]
 var gamma = 0
+var zoomFactor = 1
 
-var prj = geoOrthographic()
-	.scale( width/2 )
+var prj = theProjection()
+	.scale( width * zoomFactor )
 	.translate( [ width/2, height/2 ] )
 	.rotate( [ lambda, phi, gamma ] )
-const pathGen = geoPath().projection( prj )
+var pathGen = geoPath().projection( prj )
 
 var graticuleGroup, countryGroup, arcGroup 
 
@@ -43,6 +45,10 @@ window.onload = function(){
 		.call( drag()
 			.on('start',startDrag)
 			.on('end',endDrag)
+		)
+		.call( zoom()
+			.scaleExtent([0.5,2])
+			.on('zoom',zoomed)
 		)
 	graticuleGroup = svg.append('g').attr('id','graticules')
 	countryGroup = svg.append('g').attr('id','countries')
@@ -79,20 +85,33 @@ function startDrag(d){
 	initPos.y = event.y
 }
 
-function endDrag(d){
-	let delta_x = event.x - initPos.x
-	let delta_y = event.y - initPos.y
-	console.log('ended drag',delta_x, delta_y)
+function endDrag(d){ 
 	// update the projection
-	lambda += delta_x / 5
-	phi -= delta_y / 5
-	prj = geoOrthographic()
-		.scale( width/2 )
+	lambda += ( event.x - initPos.x ) / 8 / zoomFactor
+	phi -= ( event.y - initPos.y ) / 8 / zoomFactor
+	prj = theProjection()
+		.scale( width * zoomFactor )
 		.translate( [ width/2, height/2 ] )
 		.rotate( [ lambda, phi, gamma ] )
 	// redraw
-	let pg = geoPath().projection( prj )
-	graticuleGroup.selectAll('path').attr('d', pg )
-	countryGroup.selectAll('path').attr('d', pg )
-	arcGroup.selectAll('path').attr('d', pg )
+	pathGen = geoPath().projection( prj )
+	updateMap()
+}
+
+function zoomed(){
+	zoomFactor = event.transform.k
+	// update projection
+	prj = theProjection()
+		.scale( width * zoomFactor )
+		.translate( [ width/2, height/2 ] )
+		.rotate( [ lambda, phi, gamma ] )
+	// and redraw
+	pathGen = geoPath().projection( prj )
+	updateMap()
+}
+
+function updateMap(){
+	graticuleGroup.selectAll('path').attr('d', pathGen )
+	countryGroup.selectAll('path').attr('d', pathGen )
+	arcGroup.selectAll('path').attr('d', pathGen )
 }
