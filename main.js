@@ -89,25 +89,22 @@ function endDrag(d){
 	// update the projection
 	lambda += ( event.x - initPos.x ) / 8 / zoomFactor
 	phi -= ( event.y - initPos.y ) / 8 / zoomFactor
-	prj = theProjection()
-		.scale( width * zoomFactor )
-		.translate( [ width/2, height/2 ] )
-		.rotate( [ lambda, phi, gamma ] )
-	// redraw
-	pathGen = geoPath().projection( prj )
+	updateProjection()
 	updateMap()
 }
 
 function zoomed(){
 	zoomFactor = event.transform.k
-	// update projection
+	updateProjection()
+	updateMap()
+}
+
+function updateProjection(){
 	prj = theProjection()
 		.scale( width * zoomFactor )
 		.translate( [ width/2, height/2 ] )
 		.rotate( [ lambda, phi, gamma ] )
-	// and redraw
 	pathGen = geoPath().projection( prj )
-	updateMap()
 }
 
 function updateMap(){
