@@ -4,7 +4,9 @@ html, body {
 	padding: 0; }
 	
 svg {
-	background-color: #fbfbfb ; }
+	background-color: #fbfbfb;
+	max-width: 99%;
+	max-height: 99%; }
 svg #countries path {
 	stroke-width: 0.5px;
 	stroke: white;

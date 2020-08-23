@@ -40,8 +40,6 @@ var graticuleGroup, countryGroup, arcGroup
 window.onload = function(){
 	// init SVG
 	const svg = select('svg#map')
-		.attr('width',width)
-		.attr('height',height)
 		.call( drag()
 			.on('start',startDrag)
 			.on('end',endDrag)
@@ -50,9 +48,9 @@ window.onload = function(){
 			.scaleExtent([0.5,2])
 			.on('zoom',zoomed)
 		)
-	graticuleGroup = svg.append('g').attr('id','graticules')
-	countryGroup = svg.append('g').attr('id','countries')
-	arcGroup = svg.append('g').attr('id','arcs')
+	graticuleGroup = select('g#graticules')
+	countryGroup = select('g#countries')
+	arcGroup = select('g#arcs')
 	json('data/countries.topojson').then( tjson => {
 		let countries = topojson.feature(tjson,'countries')
 		countryGroup
@@ -90,13 +88,11 @@ function endDrag(d){
 	lambda += ( event.x - initPos.x ) / 8 / zoomFactor
 	phi -= ( event.y - initPos.y ) / 8 / zoomFactor
 	updateProjection()
-	updateMap()
 }
 
 function zoomed(){
 	zoomFactor = event.transform.k
 	updateProjection()
-	updateMap()
 }
 
 function updateProjection(){
@@ -105,10 +101,11 @@ function updateProjection(){
 		.translate( [ width/2, height/2 ] )
 		.rotate( [ lambda, phi, gamma ] )
 	pathGen = geoPath().projection( prj )
+	updateMap()
 }
 
 function updateMap(){
-	graticuleGroup.selectAll('path').attr('d', pathGen )
-	countryGroup.selectAll('path').attr('d', pathGen )
-	arcGroup.selectAll('path').attr('d', pathGen )
+	select('#projected-map-elements')
+		.selectAll('path')
+		.attr('d', pathGen )
 }
