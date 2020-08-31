@@ -4,7 +4,9 @@ import * as topojson from 'topojson-client'
 import { 
 	geoPath, 
 	geoOrthographic as theProjection, 
-	geoGraticule
+	geoGraticule,
+	geoInterpolate,
+	geoCircle
 } from 'd3-geo'
 import { drag } from 'd3-drag'
 import { zoom } from 'd3-zoom'
@@ -24,9 +26,9 @@ const arcs = [
 	{ type:'LineString', coordinates:[ vancouver, toronto ] }
 ]
 
-var lambda = -vancouver[0]
-var phi = -vancouver[1]
-var gamma = 0
+var lambda = -vancouver[0] // yaw
+var phi = -vancouver[1] // pitch
+var gamma = 0 // roll
 var zoomFactor = 1
 
 var pathGen
@@ -39,8 +41,8 @@ window.onload = function(){
 	// init SVG
 	const svg = select('svg#map')
 		.call( drag()
-			.on('start',startDrag)
-			.on('end',endDrag)
+			.on('start',setNewDragReference)
+			.on('drag',updateDrag)
 		)
 		.call( zoom()
 			.scaleExtent([1,2])
@@ -76,15 +78,15 @@ window.onload = function(){
 // initial drag positions
 var initPos = {x:null,y:null}
 
-function startDrag(d){
-	initPos.x = event.x
-	initPos.y = event.y
+function setNewDragReference(d){
+	[ initPos.x, initPos.y ] = [ event.x, event.y ]
 }
 
-function endDrag(d){ 
+function updateDrag(d){
 	// update the projection
 	lambda += ( event.x - initPos.x ) / 8 / zoomFactor
 	phi -= ( event.y - initPos.y ) / 8 / zoomFactor
+	setNewDragReference()
 	updateProjection()
 }
 

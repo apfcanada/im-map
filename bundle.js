@@ -5445,9 +5445,9 @@
   	{ type:'LineString', coordinates:[ vancouver, toronto ] }
   ];
 
-  var lambda = -vancouver[0];
-  var phi = -vancouver[1];
-  var gamma$1 = 0;
+  var lambda = -vancouver[0]; // yaw
+  var phi = -vancouver[1]; // pitch
+  var gamma$1 = 0; // roll
   var zoomFactor = 1;
 
   var pathGen;
@@ -5460,8 +5460,8 @@
   	// init SVG
   	const svg = select('svg#map')
   		.call( drag()
-  			.on('start',startDrag)
-  			.on('end',endDrag)
+  			.on('start',setNewDragReference)
+  			.on('drag',updateDrag)
   		)
   		.call( zoom()
   			.scaleExtent([1,2])
@@ -5497,15 +5497,15 @@
   // initial drag positions
   var initPos = {x:null,y:null};
 
-  function startDrag(d){
-  	initPos.x = event.x;
-  	initPos.y = event.y;
+  function setNewDragReference(d){
+  	[ initPos.x, initPos.y ] = [ event.x, event.y ];
   }
 
-  function endDrag(d){ 
+  function updateDrag(d){
   	// update the projection
   	lambda += ( event.x - initPos.x ) / 8 / zoomFactor;
   	phi -= ( event.y - initPos.y ) / 8 / zoomFactor;
+  	setNewDragReference();
   	updateProjection();
   }
 
