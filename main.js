@@ -83,9 +83,16 @@ function setNewDragReference(d){
 }
 
 function updateDrag(d){
-	// update the projection
+	// rotation about the poles is unlimited
 	lambda += ( event.x - initPos.x ) / 8 / zoomFactor
-	phi -= ( event.y - initPos.y ) / 8 / zoomFactor
+	// vertical rotation limited to ( -90, 90 )
+	phi = Math.min(
+		90,
+		Math.max(
+			-90,
+			phi - ( event.y - initPos.y ) / 8 / zoomFactor
+		)
+	)
 	setNewDragReference()
 	updateProjection()
 }
