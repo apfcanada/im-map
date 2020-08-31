@@ -1,4 +1,4 @@
-import { json } from 'd3-fetch'
+import { json, csv } from 'd3-fetch'
 import { select, event } from 'd3-selection'
 import * as topojson from 'topojson-client'
 import { 
@@ -35,7 +35,7 @@ var pathGen
 
 updateProjection()
 
-var graticuleGroup, countryGroup, arcGroup 
+const circleGen = geoCircle().radius(0.5)
 
 window.onload = function(){
 	// init SVG
@@ -48,12 +48,9 @@ window.onload = function(){
 			.scaleExtent([1,2])
 			.on('zoom',zoomed)
 		)
-	graticuleGroup = select('g#graticules')
-	countryGroup = select('g#countries')
-	arcGroup = select('g#arcs')
 	json('data/countries.topojson').then( tjson => {
 		let countries = topojson.feature(tjson,'countries')
-		countryGroup
+		select('g#countries')
 			.selectAll('path')
 			.data(countries.features)
 			.join('path')
@@ -63,16 +60,40 @@ window.onload = function(){
 			.append('title')
 			.text( d => d.properties.NAME )
 	} )
-	graticuleGroup
+	select('g#graticules')
 		.selectAll('path')
 		.data( geoGraticule().lines() )
 		.join('path')
 		.attr('d', pathGen )
-	arcGroup
-		.selectAll('path')
-		.data( arcs )
-		.join('path')
-		.attr('d', pathGen )
+	csv('data/sample-data.csv').then( investments => {			
+		select('g#investments')
+			.selectAll('g')
+			.data(investments.filter(d=>d.year==2019))
+			.join('g')
+			.call( g => {
+				g.append('path')
+					.datum(d=>circleGen.center([d.source_lon,d.source_lat])())
+					.classed('source',true)
+					.attr('d', pathGen )
+				g.append('path')
+					.datum(d=>circleGen.center([d.dest_lon,d.dest_lat])())
+					.classed('dest',true)
+					.attr('d', pathGen )
+				g.append('path')
+					.datum(d => {
+						return {
+							type:'LineString', 
+							coordinates:[ 
+								[d.source_lon,d.source_lat],
+								[d.dest_lon,d.dest_lat]
+							]
+						}
+					})
+					.classed('arc',true)
+					.attr('d', pathGen )
+			} )
+			
+	} )
 }
 
 // initial drag positions

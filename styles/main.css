@@ -16,8 +16,10 @@ svg #countries path#CAN {
 svg #graticules path {
 	fill: none;
 	stroke: #ccc;
-	stroke-width: 0.5; }
-svg #arcs path {
+	stroke-width: 0.25; }
+svg #investments path {
 	fill: none;
-	stroke: #333;
-	stroke-width: 2; }
+	stroke: #00f;
+	stroke-width: 0.3; }
+svg #investments path.arc {
+	opacity: 0.5; }

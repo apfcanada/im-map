@@ -3,6 +3,195 @@
   factory();
 }((function () { 'use strict';
 
+  var EOL = {},
+      EOF = {},
+      QUOTE = 34,
+      NEWLINE = 10,
+      RETURN = 13;
+
+  function objectConverter(columns) {
+    return new Function("d", "return {" + columns.map(function(name, i) {
+      return JSON.stringify(name) + ": d[" + i + "] || \"\"";
+    }).join(",") + "}");
+  }
+
+  function customConverter(columns, f) {
+    var object = objectConverter(columns);
+    return function(row, i) {
+      return f(object(row), i, columns);
+    };
+  }
+
+  // Compute unique columns in order of discovery.
+  function inferColumns(rows) {
+    var columnSet = Object.create(null),
+        columns = [];
+
+    rows.forEach(function(row) {
+      for (var column in row) {
+        if (!(column in columnSet)) {
+          columns.push(columnSet[column] = column);
+        }
+      }
+    });
+
+    return columns;
+  }
+
+  function pad(value, width) {
+    var s = value + "", length = s.length;
+    return length < width ? new Array(width - length + 1).join(0) + s : s;
+  }
+
+  function formatYear(year) {
+    return year < 0 ? "-" + pad(-year, 6)
+      : year > 9999 ? "+" + pad(year, 6)
+      : pad(year, 4);
+  }
+
+  function formatDate(date) {
+    var hours = date.getUTCHours(),
+        minutes = date.getUTCMinutes(),
+        seconds = date.getUTCSeconds(),
+        milliseconds = date.getUTCMilliseconds();
+    return isNaN(date) ? "Invalid Date"
+        : formatYear(date.getUTCFullYear()) + "-" + pad(date.getUTCMonth() + 1, 2) + "-" + pad(date.getUTCDate(), 2)
+        + (milliseconds ? "T" + pad(hours, 2) + ":" + pad(minutes, 2) + ":" + pad(seconds, 2) + "." + pad(milliseconds, 3) + "Z"
+        : seconds ? "T" + pad(hours, 2) + ":" + pad(minutes, 2) + ":" + pad(seconds, 2) + "Z"
+        : minutes || hours ? "T" + pad(hours, 2) + ":" + pad(minutes, 2) + "Z"
+        : "");
+  }
+
+  function dsvFormat(delimiter) {
+    var reFormat = new RegExp("[\"" + delimiter + "\n\r]"),
+        DELIMITER = delimiter.charCodeAt(0);
+
+    function parse(text, f) {
+      var convert, columns, rows = parseRows(text, function(row, i) {
+        if (convert) return convert(row, i - 1);
+        columns = row, convert = f ? customConverter(row, f) : objectConverter(row);
+      });
+      rows.columns = columns || [];
+      return rows;
+    }
+
+    function parseRows(text, f) {
+      var rows = [], // output rows
+          N = text.length,
+          I = 0, // current character index
+          n = 0, // current line number
+          t, // current token
+          eof = N <= 0, // current token followed by EOF?
+          eol = false; // current token followed by EOL?
+
+      // Strip the trailing newline.
+      if (text.charCodeAt(N - 1) === NEWLINE) --N;
+      if (text.charCodeAt(N - 1) === RETURN) --N;
+
+      function token() {
+        if (eof) return EOF;
+        if (eol) return eol = false, EOL;
+
+        // Unescape quotes.
+        var i, j = I, c;
+        if (text.charCodeAt(j) === QUOTE) {
+          while (I++ < N && text.charCodeAt(I) !== QUOTE || text.charCodeAt(++I) === QUOTE);
+          if ((i = I) >= N) eof = true;
+          else if ((c = text.charCodeAt(I++)) === NEWLINE) eol = true;
+          else if (c === RETURN) { eol = true; if (text.charCodeAt(I) === NEWLINE) ++I; }
+          return text.slice(j + 1, i - 1).replace(/""/g, "\"");
+        }
+
+        // Find next delimiter or newline.
+        while (I < N) {
+          if ((c = text.charCodeAt(i = I++)) === NEWLINE) eol = true;
+          else if (c === RETURN) { eol = true; if (text.charCodeAt(I) === NEWLINE) ++I; }
+          else if (c !== DELIMITER) continue;
+          return text.slice(j, i);
+        }
+
+        // Return last token before EOF.
+        return eof = true, text.slice(j, N);
+      }
+
+      while ((t = token()) !== EOF) {
+        var row = [];
+        while (t !== EOL && t !== EOF) row.push(t), t = token();
+        if (f && (row = f(row, n++)) == null) continue;
+        rows.push(row);
+      }
+
+      return rows;
+    }
+
+    function preformatBody(rows, columns) {
+      return rows.map(function(row) {
+        return columns.map(function(column) {
+          return formatValue(row[column]);
+        }).join(delimiter);
+      });
+    }
+
+    function format(rows, columns) {
+      if (columns == null) columns = inferColumns(rows);
+      return [columns.map(formatValue).join(delimiter)].concat(preformatBody(rows, columns)).join("\n");
+    }
+
+    function formatBody(rows, columns) {
+      if (columns == null) columns = inferColumns(rows);
+      return preformatBody(rows, columns).join("\n");
+    }
+
+    function formatRows(rows) {
+      return rows.map(formatRow).join("\n");
+    }
+
+    function formatRow(row) {
+      return row.map(formatValue).join(delimiter);
+    }
+
+    function formatValue(value) {
+      return value == null ? ""
+          : value instanceof Date ? formatDate(value)
+          : reFormat.test(value += "") ? "\"" + value.replace(/"/g, "\"\"") + "\""
+          : value;
+    }
+
+    return {
+      parse: parse,
+      parseRows: parseRows,
+      format: format,
+      formatBody: formatBody,
+      formatRows: formatRows,
+      formatRow: formatRow,
+      formatValue: formatValue
+    };
+  }
+
+  var csv = dsvFormat(",");
+
+  var csvParse = csv.parse;
+
+  function responseText(response) {
+    if (!response.ok) throw new Error(response.status + " " + response.statusText);
+    return response.text();
+  }
+
+  function text(input, init) {
+    return fetch(input, init).then(responseText);
+  }
+
+  function dsvParse(parse) {
+    return function(input, init, row) {
+      if (arguments.length === 2 && typeof init === "function") row = init, init = undefined;
+      return text(input, init).then(function(response) {
+        return parse(response, row);
+      });
+    };
+  }
+
+  var csv$1 = dsvParse(csvParse);
+
   function responseJson(response) {
     if (!response.ok) throw new Error(response.status + " " + response.statusText);
     if (response.status === 204 || response.status === 205) return;
@@ -1191,6 +1380,12 @@
     d[0] /= l, d[1] /= l, d[2] /= l;
   }
 
+  function constant$1(x) {
+    return function() {
+      return x;
+    };
+  }
+
   function compose(a, b) {
 
     function compose(x, y) {
@@ -1288,6 +1483,46 @@
     cartesianNormalizeInPlace(point);
     var radius = acos(-point[1]);
     return ((-point[2] < 0 ? -radius : radius) + tau - epsilon) % tau;
+  }
+
+  function geoCircle() {
+    var center = constant$1([0, 0]),
+        radius = constant$1(90),
+        precision = constant$1(6),
+        ring,
+        rotate,
+        stream = {point: point};
+
+    function point(x, y) {
+      ring.push(x = rotate(x, y));
+      x[0] *= degrees, x[1] *= degrees;
+    }
+
+    function circle() {
+      var c = center.apply(this, arguments),
+          r = radius.apply(this, arguments) * radians,
+          p = precision.apply(this, arguments) * radians;
+      ring = [];
+      rotate = rotateRadians(-c[0] * radians, -c[1] * radians, 0).invert;
+      circleStream(stream, r, p, 1);
+      c = {type: "Polygon", coordinates: [ring]};
+      ring = rotate = null;
+      return c;
+    }
+
+    circle.center = function(_) {
+      return arguments.length ? (center = typeof _ === "function" ? _ : constant$1([+_[0], +_[1]]), circle) : center;
+    };
+
+    circle.radius = function(_) {
+      return arguments.length ? (radius = typeof _ === "function" ? _ : constant$1(+_), circle) : radius;
+    };
+
+    circle.precision = function(_) {
+      return arguments.length ? (precision = typeof _ === "function" ? _ : constant$1(+_), circle) : precision;
+    };
+
+    return circle;
   }
 
   function clipBuffer() {
@@ -3119,7 +3354,7 @@
     }
   }
 
-  function constant$1(x) {
+  function constant$2(x) {
     return function() {
       return x;
     };
@@ -3277,19 +3512,19 @@
     }
 
     drag.filter = function(_) {
-      return arguments.length ? (filter = typeof _ === "function" ? _ : constant$1(!!_), drag) : filter;
+      return arguments.length ? (filter = typeof _ === "function" ? _ : constant$2(!!_), drag) : filter;
     };
 
     drag.container = function(_) {
-      return arguments.length ? (container = typeof _ === "function" ? _ : constant$1(_), drag) : container;
+      return arguments.length ? (container = typeof _ === "function" ? _ : constant$2(_), drag) : container;
     };
 
     drag.subject = function(_) {
-      return arguments.length ? (subject = typeof _ === "function" ? _ : constant$1(_), drag) : subject;
+      return arguments.length ? (subject = typeof _ === "function" ? _ : constant$2(_), drag) : subject;
     };
 
     drag.touchable = function(_) {
-      return arguments.length ? (touchable = typeof _ === "function" ? _ : constant$1(!!_), drag) : touchable;
+      return arguments.length ? (touchable = typeof _ === "function" ? _ : constant$2(!!_), drag) : touchable;
     };
 
     drag.on = function() {
@@ -3685,7 +3920,7 @@
         : m1) * 255;
   }
 
-  function constant$2(x) {
+  function constant$3(x) {
     return function() {
       return x;
     };
@@ -3705,13 +3940,13 @@
 
   function gamma(y) {
     return (y = +y) === 1 ? nogamma : function(a, b) {
-      return b - a ? exponential(a, b, y) : constant$2(isNaN(a) ? b : a);
+      return b - a ? exponential(a, b, y) : constant$3(isNaN(a) ? b : a);
     };
   }
 
   function nogamma(a, b) {
     var d = b - a;
-    return d ? linear(a, d) : constant$2(isNaN(a) ? b : a);
+    return d ? linear(a, d) : constant$3(isNaN(a) ? b : a);
   }
 
   var interpolateRgb = (function rgbGamma(y) {
@@ -4954,7 +5189,7 @@
   selection.prototype.interrupt = selection_interrupt;
   selection.prototype.transition = selection_transition;
 
-  function constant$3(x) {
+  function constant$4(x) {
     return function() {
       return x;
     };
@@ -5383,19 +5618,19 @@
     }
 
     zoom.wheelDelta = function(_) {
-      return arguments.length ? (wheelDelta = typeof _ === "function" ? _ : constant$3(+_), zoom) : wheelDelta;
+      return arguments.length ? (wheelDelta = typeof _ === "function" ? _ : constant$4(+_), zoom) : wheelDelta;
     };
 
     zoom.filter = function(_) {
-      return arguments.length ? (filter = typeof _ === "function" ? _ : constant$3(!!_), zoom) : filter;
+      return arguments.length ? (filter = typeof _ === "function" ? _ : constant$4(!!_), zoom) : filter;
     };
 
     zoom.touchable = function(_) {
-      return arguments.length ? (touchable = typeof _ === "function" ? _ : constant$3(!!_), zoom) : touchable;
+      return arguments.length ? (touchable = typeof _ === "function" ? _ : constant$4(!!_), zoom) : touchable;
     };
 
     zoom.extent = function(_) {
-      return arguments.length ? (extent = typeof _ === "function" ? _ : constant$3([[+_[0][0], +_[0][1]], [+_[1][0], +_[1][1]]]), zoom) : extent;
+      return arguments.length ? (extent = typeof _ === "function" ? _ : constant$4([[+_[0][0], +_[0][1]], [+_[1][0], +_[1][1]]]), zoom) : extent;
     };
 
     zoom.scaleExtent = function(_) {
@@ -5432,18 +5667,7 @@
 
   const width = 700;
   const height = width;
-
-  const toronto = [-79,43];
-  const tokyo = [139,36];
   const vancouver = [-123,49];
-  const sydney = [149,-33];
-
-  const arcs = [ 
-  	{ type:'LineString', coordinates:[ toronto, tokyo ] },
-  	{ type:'LineString', coordinates:[ tokyo, sydney ] },
-  	{ type:'LineString', coordinates:[ sydney, vancouver ] },
-  	{ type:'LineString', coordinates:[ vancouver, toronto ] }
-  ];
 
   var lambda = -vancouver[0]; // yaw
   var phi = -vancouver[1]; // pitch
@@ -5454,7 +5678,7 @@
 
   updateProjection();
 
-  var graticuleGroup, countryGroup, arcGroup; 
+  const circleGen = geoCircle().radius(0.5);
 
   window.onload = function(){
   	// init SVG
@@ -5467,12 +5691,9 @@
   			.scaleExtent([1,2])
   			.on('zoom',zoomed)
   		);
-  	graticuleGroup = select('g#graticules');
-  	countryGroup = select('g#countries');
-  	arcGroup = select('g#arcs');
   	json('data/countries.topojson').then( tjson => {
   		let countries = feature(tjson,'countries');
-  		countryGroup
+  		select('g#countries')
   			.selectAll('path')
   			.data(countries.features)
   			.join('path')
@@ -5482,16 +5703,40 @@
   			.append('title')
   			.text( d => d.properties.NAME );
   	} );
-  	graticuleGroup
+  	select('g#graticules')
   		.selectAll('path')
   		.data( graticule().lines() )
   		.join('path')
   		.attr('d', pathGen );
-  	arcGroup
-  		.selectAll('path')
-  		.data( arcs )
-  		.join('path')
-  		.attr('d', pathGen );
+  	csv$1('data/sample-data.csv').then( investments => {			
+  		select('g#investments')
+  			.selectAll('g')
+  			.data(investments.filter(d=>d.year==2019))
+  			.join('g')
+  			.call( g => {
+  				g.append('path')
+  					.datum(d=>circleGen.center([d.source_lon,d.source_lat])())
+  					.classed('source',true)
+  					.attr('d', pathGen );
+  				g.append('path')
+  					.datum(d=>circleGen.center([d.dest_lon,d.dest_lat])())
+  					.classed('dest',true)
+  					.attr('d', pathGen );
+  				g.append('path')
+  					.datum(d => {
+  						return {
+  							type:'LineString', 
+  							coordinates:[ 
+  								[d.source_lon,d.source_lat],
+  								[d.dest_lon,d.dest_lat]
+  							]
+  						}
+  					})
+  					.classed('arc',true)
+  					.attr('d', pathGen );
+  			} );
+  			
+  	} );
   };
 
   // initial drag positions
