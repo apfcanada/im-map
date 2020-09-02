@@ -10,13 +10,18 @@
 		<script src="bundle.js"></script>
 	</head>
 	<body>
-		<svg id="map" viewBox="0 0 700 700">
+		<svg id="map" width="700" height="700">
 			<g id="projected-map-elements">
 				<g id="graticules"></g>
 				<g id="countries"></g>
 				<g id="investments"></g>
-			</g><!--#map-elements-->
-			<g id="controls"></g>
+			</g>
+			<g id="meta">
+				<text id="year" x="0" y="698"><text>
+			</g>
 		</svg>
+		<div class="slider-container">
+			<input type="range" step="1" id="time-slider"/>
+		</div>
 	</body>
 </html>

@@ -5708,7 +5708,17 @@
   		.data( graticule().lines() )
   		.join('path')
   		.attr('d', pathGen );
-  	csv$1('data/sample-data.csv').then( investments => {			
+  	csv$1('data/sample-data.csv').then( investments => {	
+  		// configure the time slider
+  		let years = investments.map(i=>Number(i.year));
+  		let minYear = Math.min(...years);
+  		select('#time-slider')
+  			.attr('min',minYear)
+  			.attr('max',Math.max(...years))
+  			.attr('value',minYear)
+  			.on('input',timeSlid);
+  		select('#year').text(minYear);
+  		// render everything on the map
   		select('g#investments')
   			.selectAll('g')
   			.data(investments.filter(d=>d.year==2019))
@@ -5735,9 +5745,12 @@
   					.classed('arc',true)
   					.attr('d', pathGen );
   			} );
-  			
   	} );
   };
+
+  function timeSlid(){
+  	select('#year').text(this.value);
+  }
 
   // initial drag positions
   var initPos = {x:null,y:null};

@@ -1,7 +1,23 @@
+@font-face {
+	font-family: 'Avenir';
+	src: url('fonts/Avenir-book.ttf');
+	font-weight: normal;
+	font-style: normal; }
+
+@font-face {
+	font-family: 'Avenir';
+	src: url('fonts/Avenir-oblique.ttf');
+	font-weight: normal;
+	font-style: italic; }
+	
+@font-face {
+	font-family: 'Avenir';
+	src: url('fonts/Avenir-bold.ttf');
+	font-weight: bold;
+	font-style: normal; }
+
 html, body {
-	height: 100%;
-	margin: 0;
-	padding: 0; }
+	font-family: Avenir, sans-serif; }
 	
 svg {
 	background-color: #fbfbfb;
@@ -23,3 +39,14 @@ svg #investments path {
 	stroke-width: 0.3; }
 svg #investments path.arc {
 	opacity: 0.5; }
+
+svg #meta #year {
+	alignment-baseline: baseline;
+	font-size: 50px; }
+	
+input[type="range"] {
+  appearance: none;
+  width: 700px;
+  height: 5px; 
+  background: #d3d3d3;
+}
