@@ -36,9 +36,7 @@ svg #graticules path {
 svg #investments path {
 	fill: none;
 	stroke: #00f;
-	stroke-width: 0.3; }
-svg #investments path.arc {
-	opacity: 0.5; }
+	stroke-width: 0.5; }
 
 svg #meta #year {
 	alignment-baseline: baseline;

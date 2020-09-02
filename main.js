@@ -88,29 +88,45 @@ function updateYear(year){
 	select('g#investments')
 		.selectAll('g')
 		.data( investmentData.filter(d=>d.year==year), d => d.uid )
-		.join('g')
+		.join( 
+			enterInvestment, 
+			undefined, // no updates 
+			exitInvestment
+		)
+}
+
+function enterInvestment( enterSelection ){
+	enterSelection
+		.append('g')
 		.call( g => {
-			g.append('path')
-				.datum(d=>circleGen.center([d.source_lon,d.source_lat])())
-				.classed('source',true)
-				.attr('d', pathGen )
-			g.append('path')
-				.datum(d=>circleGen.center([d.dest_lon,d.dest_lat])())
-				.classed('dest',true)
-				.attr('d', pathGen )
-			g.append('path')
-				.datum(d => {
-					return {
-						type:'LineString', 
-						coordinates:[ 
-							[d.source_lon,d.source_lat],
-							[d.dest_lon,d.dest_lat]
-						]
-					}
-				})
-				.classed('arc',true)
-				.attr('d', pathGen )
-		} )
+				g.append('path').classed('source',true)
+					.datum(d=>circleGen.center([d.source_lon,d.source_lat])())
+					.attr('d', pathGen )
+				g.append('path').classed('dest',true)
+					.datum(d=>circleGen.center([d.dest_lon,d.dest_lat])())
+					.attr('d', pathGen )
+				g.append('path').classed('arc',true)
+					.datum(d => {
+						return {
+							type:'LineString', 
+							coordinates:[ 
+								[d.source_lon,d.source_lat],
+								[d.dest_lon,d.dest_lat]
+							]
+						}
+					})
+					.style('opacity',0) 
+					.attr('d', pathGen )
+					.transition().duration(500) // fade in
+					.style('opacity',0.5)
+			} )
+}
+
+function exitInvestment( exitSelection ){
+	exitSelection
+		.transition().duration(500) // fade out
+		.style('opacity',0) 
+		.remove()
 }
 
 function timeSlid(){
