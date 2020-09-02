@@ -5676,6 +5676,8 @@
 
   var pathGen;
 
+  var investmentData;
+
   updateProjection();
 
   const circleGen = geoCircle().radius(0.5);
@@ -5709,6 +5711,8 @@
   		.join('path')
   		.attr('d', pathGen );
   	csv$1('data/sample-data.csv').then( investments => {	
+  		// stash this in a global for later
+  		investmentData = investments;
   		// configure the time slider
   		let years = investments.map(i=>Number(i.year));
   		let minYear = Math.min(...years);
@@ -5718,38 +5722,43 @@
   			.attr('value',minYear)
   			.on('input',timeSlid);
   		select('#year').text(minYear);
-  		// render everything on the map
-  		select('g#investments')
-  			.selectAll('g')
-  			.data(investments.filter(d=>d.year==2019))
-  			.join('g')
-  			.call( g => {
-  				g.append('path')
-  					.datum(d=>circleGen.center([d.source_lon,d.source_lat])())
-  					.classed('source',true)
-  					.attr('d', pathGen );
-  				g.append('path')
-  					.datum(d=>circleGen.center([d.dest_lon,d.dest_lat])())
-  					.classed('dest',true)
-  					.attr('d', pathGen );
-  				g.append('path')
-  					.datum(d => {
-  						return {
-  							type:'LineString', 
-  							coordinates:[ 
-  								[d.source_lon,d.source_lat],
-  								[d.dest_lon,d.dest_lat]
-  							]
-  						}
-  					})
-  					.classed('arc',true)
-  					.attr('d', pathGen );
-  			} );
+  		updateYear(minYear);
   	} );
   };
 
+  function updateYear(year){
+  	// render everything on the map
+  	select('g#investments')
+  		.selectAll('g')
+  		.data( investmentData.filter(d=>d.year==year), d => d.uid )
+  		.join('g')
+  		.call( g => {
+  			g.append('path')
+  				.datum(d=>circleGen.center([d.source_lon,d.source_lat])())
+  				.classed('source',true)
+  				.attr('d', pathGen );
+  			g.append('path')
+  				.datum(d=>circleGen.center([d.dest_lon,d.dest_lat])())
+  				.classed('dest',true)
+  				.attr('d', pathGen );
+  			g.append('path')
+  				.datum(d => {
+  					return {
+  						type:'LineString', 
+  						coordinates:[ 
+  							[d.source_lon,d.source_lat],
+  							[d.dest_lon,d.dest_lat]
+  						]
+  					}
+  				})
+  				.classed('arc',true)
+  				.attr('d', pathGen );
+  		} );
+  }
+
   function timeSlid(){
   	select('#year').text(this.value);
+  	updateYear(this.value);
   }
 
   // initial drag positions
