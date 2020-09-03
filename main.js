@@ -1,45 +1,34 @@
 import { json, csv } from 'd3-fetch'
-import { select, event } from 'd3-selection'
+import { select, selectAll, event } from 'd3-selection'
 import * as topojson from 'topojson-client'
 import { 
 	geoPath, 
-	geoOrthographic as theProjection, 
-	geoGraticule,
-	geoInterpolate,
-	geoCircle
+	geoMercator as theProjection, 
+	geoGraticule
 } from 'd3-geo'
 import { drag } from 'd3-drag'
 import { zoom } from 'd3-zoom'
+import { timeParse, timeFormat } from 'd3-time-format'
+import { timeMonth } from 'd3-time'
 
 const width = 700
 const height = width
 
-const toronto = [-79,43]
-const tokyo = [139,36]
 const vancouver = [-123,49]
-const sydney = [149,-33]
-
-const arcs = [ 
-	{ type:'LineString', coordinates:[ toronto, tokyo ] },
-	{ type:'LineString', coordinates:[ tokyo, sydney ] },
-	{ type:'LineString', coordinates:[ sydney, vancouver ] },
-	{ type:'LineString', coordinates:[ vancouver, toronto ] }
-]
 
 var lambda = -vancouver[0] // yaw
 var phi = -vancouver[1] // pitch
 var gamma = 0 // roll
 var zoomFactor = 1
 
-var pathGen
+var pathGen, prj, places, investments, firstMonth
 
-var investmentData
+const parseDate = timeParse('%Y-%m')
+const year = timeFormat('%Y')
 
 updateProjection()
 
-const circleGen = geoCircle().radius(0.5)
-
-window.onload = function(){
+window.onload = async function(){
 	// init SVG
 	const svg = select('svg#map')
 		.call( drag()
@@ -67,71 +56,94 @@ window.onload = function(){
 		.data( geoGraticule().lines() )
 		.join('path')
 		.attr('d', pathGen )
-	csv('data/sample-data.csv').then( investments => {	
-		// stash this in a global for later
-		investmentData = investments
-		// configure the time slider
-		let years = investments.map(i=>Number(i.year))
-		let minYear = Math.min(...years)
-		select('#time-slider')
-			.attr('min',minYear)
-			.attr('max',Math.max(...years))
-			.attr('value',minYear)
-			.on('input',timeSlid)
-		select('#year').text(minYear)
-		updateYear(minYear)
+	
+	await csv('data/places.csv').then( data => {
+		places = data.filter( p => p.lon != '' )
+		places.map( p => {
+			p.location = [ Number(p.lon), Number(p.lat) ]
+			delete p.lat;
+			delete p.lon;
+		} )
 	} )
+	
+	await csv('data/investments.csv').then( data => {
+		investments = data 
+		investments.map( i => {
+			i.Date = parseDate(i.Date)
+			i.source = places.find( p => p.uid == i.source_uid )
+			i.dest = places.find( p => p.uid == i.dest_uid )
+			delete i.source_uid;
+			delete i.dest_uid;
+			i.arc = {
+				'type':'LineString',
+				'coordinates':[i.source.location,i.dest.location]}
+		} )
+	} )
+	
+	firstMonth = new Date( Math.min(...investments.map(i=>i.Date)) )
+	let lastMonth = new Date( Math.max(...investments.map(i=>i.Date)) )
+	// configure the time slider	
+	select('#time-slider')
+		.attr('max',timeMonth.count( firstMonth, lastMonth ) )
+		.on('input',timeSlid)
+	select('#year').text(year(firstMonth))
+	updateTime(firstMonth)
 }
 
-function updateYear(year){
-	// render everything on the map
+function updateTime(thisDate){
+	// find investments made within 3 months of selected date
+	let investmentsNow = investments
+		.filter( i => Math.abs(timeMonth.count(thisDate,i.Date)) <= 3 )
+	// find the places associated with those investments 
+	let placesNow = new Set()
+	investmentsNow.map( i => {
+		placesNow.add(i.dest) 
+		placesNow.add(i.source)
+	} )
+	// update places on the map
+	select('g#cities')
+		.selectAll('circle')
+		.data( [...placesNow], p=>p.uid )
+		.join( enterCity, undefined, exitCity )
+	// update investments
 	select('g#investments')
-		.selectAll('g')
-		.data( investmentData.filter(d=>d.year==year), d => d.uid )
-		.join( 
-			enterInvestment, 
-			undefined, // no updates 
-			exitInvestment
-		)
+		.selectAll('path')
+		.data(investmentsNow,i=>i.uid)
+		.join( enterInvestment, undefined, exitInvestment )
+}
+
+function enterCity(enterSelection){
+	enterSelection.append('circle')
+		.attr('cx',d => prj(d.location)[0] )
+		.attr('cy',d => prj(d.location)[1] )
+		.style('fill','none')
+		.style('stroke','black')
+		.attr('r',0)
+		.transition()
+		.attr('r',d=>2+Math.random()*10)
+}
+
+function exitCity(exitSelection){
+	exitSelection.transition().attr('r',0).remove()
 }
 
 function enterInvestment( enterSelection ){
 	enterSelection
-		.append('g')
-		.call( g => {
-				g.append('path').classed('source',true)
-					.datum(d=>circleGen.center([d.source_lon,d.source_lat])())
-					.attr('d', pathGen )
-				g.append('path').classed('dest',true)
-					.datum(d=>circleGen.center([d.dest_lon,d.dest_lat])())
-					.attr('d', pathGen )
-				g.append('path').classed('arc',true)
-					.datum(d => {
-						return {
-							type:'LineString', 
-							coordinates:[ 
-								[d.source_lon,d.source_lat],
-								[d.dest_lon,d.dest_lat]
-							]
-						}
-					})
-					.style('opacity',0) 
-					.attr('d', pathGen )
-					.transition().duration(500) // fade in
-					.style('opacity',0.5)
-			} )
+		.append('path')
+		.attr('d', investment => pathGen(investment.arc) )
 }
 
 function exitInvestment( exitSelection ){
 	exitSelection
-		.transition().duration(500) // fade out
+		.transition().duration(250) // fade out
 		.style('opacity',0) 
 		.remove()
 }
 
 function timeSlid(){
-	select('#year').text(this.value)
-	updateYear(this.value)
+	let selectedDate = timeMonth.offset( firstMonth, this.value )
+	select('#year').text(year(selectedDate))
+	updateTime(selectedDate)
 }
 
 // initial drag positions
@@ -163,12 +175,17 @@ function zoomed(){
 
 function updateProjection(){
 	// set the projection from configured variables
-	let prj = theProjection()
+	prj = theProjection()
 		.scale( width / 2 * zoomFactor )
 		.translate( [ width/2, height/2 ] )
 		.rotate( [ lambda, phi, gamma ] )
 	pathGen = geoPath().projection( prj )
-	select('#projected-map-elements')
-		.selectAll('path')
+	// update geometries
+	selectAll('#graticules path, #countries path')
 		.attr('d', pathGen )
+	selectAll('#cities circle')
+		.attr('cx',d => prj(d.location)[0] )
+		.attr('cy',d => prj(d.location)[1] )
+	selectAll('#investments path')
+		.attr('d',investment => pathGen(investment.arc))
 }
