@@ -6564,8 +6564,8 @@
     return locale;
   }
 
-  const width = 700;
-  const height = width;
+  const width = 1000;
+  const height = 600;
 
   const vancouver = [-123,49];
 
@@ -6576,7 +6576,7 @@
 
   var pathGen, prj, places, investments, firstMonth;
 
-  const parseDate = timeParse('%Y-%m');
+  const parseDate = timeParse('%Y-%q');
   const year$1 = timeFormat('%Y');
 
   updateProjection();
@@ -6589,7 +6589,7 @@
   			.on('drag',updateDrag)
   		)
   		.call( zoom()
-  			.scaleExtent([1,2])
+  			.scaleExtent([0.8,4])
   			.on('zoom',zoomed)
   		);
   	json('data/countries.topojson').then( tjson => {
@@ -6623,6 +6623,7 @@
   		investments = data; 
   		investments.map( i => {
   			i.Date = parseDate(i.Date);
+  			i.val = Number(i.val);
   			i.source = places.find( p => p.uid == i.source_uid );
   			i.dest = places.find( p => p.uid == i.dest_uid );
   			delete i.source_uid;
@@ -6650,13 +6651,20 @@
   	// find the places associated with those investments 
   	let placesNow = new Set();
   	investmentsNow.map( i => {
-  		placesNow.add(i.dest); 
+  		placesNow.add(i.dest);
   		placesNow.add(i.source);
+  	} );
+  	// sum investments over destination place
+  	placesNow = [...placesNow];
+  	placesNow.map( place => {
+  		place.total =  investmentsNow
+  			.filter( i => i.dest.uid == place.uid )
+  			.reduce( (a,b) => a + b.val, 0 );
   	} );
   	// update places on the map
   	select('g#cities')
   		.selectAll('circle')
-  		.data( [...placesNow], p=>p.uid )
+  		.data( placesNow, p=>p.uid )
   		.join( enterCity, undefined, exitCity );
   	// update investments
   	select('g#investments')
@@ -6669,11 +6677,13 @@
   	enterSelection.append('circle')
   		.attr('cx',d => prj(d.location)[0] )
   		.attr('cy',d => prj(d.location)[1] )
-  		.style('fill','none')
-  		.style('stroke','black')
+  		.call( circle => {
+  			circle.append('title')
+  				.text( d => `${d.city}, ${d.country}`); 
+  		} )
   		.attr('r',0)
   		.transition()
-  		.attr('r',d=>2+Math.random()*10);
+  		.attr('r',d => Math.sqrt(d.total/10^9)/500);
   }
 
   function exitCity(exitSelection){
@@ -6683,12 +6693,13 @@
   function enterInvestment( enterSelection ){
   	enterSelection
   		.append('path')
-  		.attr('d', investment => pathGen(investment.arc) );
+  		.attr('d', investment => pathGen(investment.arc) )
+  		.style('stroke-width',i => Math.sqrt(i.val/10^9)/2000 );
   }
 
   function exitInvestment( exitSelection ){
   	exitSelection
-  		.transition().duration(250) // fade out
+  		.transition().duration(250)
   		.style('opacity',0) 
   		.remove();
   }

@@ -23,6 +23,9 @@ svg {
 	background-color: #fbfbfb;
 	max-width: 99%;
 	max-height: 99%; }
+svg path {
+	stroke-linecap: round; 
+	stroke-linejoin : round; }
 svg #countries path {
 	stroke-width: 0.5px;
 	stroke: white;
@@ -35,12 +38,18 @@ svg #graticules path {
 	stroke-width: 0.25; }
 svg #investments path {
 	fill: none;
+	opacity: 0.25;
 	stroke: #00f;
 	stroke-width: 0.5; }
-
+svg #cities circle {
+	fill: black;
+	fill-opacity: 0.1;
+	stroke: black; }
 svg #meta #year {
 	alignment-baseline: baseline;
 	font-size: 50px; }
+	
+
 	
 input[type="range"] {
   appearance: none;
