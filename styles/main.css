@@ -31,7 +31,7 @@ svg #countries path {
 	stroke: white;
 	fill: #bbb; }
 svg #countries path#CAN {
-	fill: red; }
+	fill: #F77; }
 svg #graticules path {
 	fill: none;
 	stroke: #ccc;

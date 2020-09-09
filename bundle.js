@@ -6634,6 +6634,8 @@
   		} );
   	} );
   	
+  	console.log(investments);
+  	
   	firstMonth = new Date( Math.min(...investments.map(i=>i.Date)) );
   	let lastMonth = new Date( Math.max(...investments.map(i=>i.Date)) );
   	// configure the time slider	
@@ -6694,7 +6696,8 @@
   	enterSelection
   		.append('path')
   		.attr('d', investment => pathGen(investment.arc) )
-  		.style('stroke-width',i => Math.sqrt(i.val/10^9)/2000 );
+  		.style('stroke-width',i => Math.sqrt(i.val/10^9)/2000 )
+  		.style('stroke',i => i.source.country=='Canada' ? 'red' : 'blue');
   }
 
   function exitInvestment( exitSelection ){
