@@ -6577,7 +6577,7 @@
   var pathGen, prj, places, investments, firstMonth;
 
   const parseDate = timeParse('%Y-%q');
-  const year$1 = timeFormat('%Y');
+  const yearQuarter = timeFormat('%Y-%q');
 
   updateProjection();
 
@@ -6634,22 +6634,21 @@
   		} );
   	} );
   	
-  	console.log(investments);
-  	
   	firstMonth = new Date( Math.min(...investments.map(i=>i.Date)) );
   	let lastMonth = new Date( Math.max(...investments.map(i=>i.Date)) );
   	// configure the time slider	
   	select('#time-slider')
   		.attr('max',month.count( firstMonth, lastMonth ) )
   		.on('input',timeSlid);
-  	select('#year').text(year$1(firstMonth));
+  	select('#year').text(yearQuarter(firstMonth));
   	updateTime(firstMonth);
   };
 
   function updateTime(thisDate){
   	// find investments made within 3 months of selected date
   	let investmentsNow = investments
-  		.filter( i => Math.abs(month.count(thisDate,i.Date)) <= 3 );
+  		.filter( i => Math.abs(month.count(thisDate,i.Date)) <= 1 );
+  	console.log(investmentsNow);
   	// find the places associated with those investments 
   	let placesNow = new Set();
   	investmentsNow.map( i => {
@@ -6667,7 +6666,7 @@
   	select('g#cities')
   		.selectAll('circle')
   		.data( placesNow, p=>p.uid )
-  		.join( enterCity, undefined, exitCity );
+  		.join( enterCity, updateCity, exitCity );
   	// update investments
   	select('g#investments')
   		.selectAll('path')
@@ -6685,18 +6684,32 @@
   		} )
   		.attr('r',0)
   		.transition()
-  		.attr('r',d => Math.sqrt(d.total/10^9)/500);
+  		.attr('r', d => cityRadius(d.total) );
+  }
+
+  function updateCity(updateSelection){
+  	updateSelection
+  		.transition()
+  		.attr('r', d => cityRadius(d.total) );
   }
 
   function exitCity(exitSelection){
   	exitSelection.transition().attr('r',0).remove();
   }
 
+  function cityRadius(totalValue){
+  	return 1 + Math.sqrt(totalValue/(10**6))/5
+  }
+
+  function pathWidth(investmentValue){
+  	return cityRadius(investmentValue)/2
+  }
+
   function enterInvestment( enterSelection ){
   	enterSelection
   		.append('path')
   		.attr('d', investment => pathGen(investment.arc) )
-  		.style('stroke-width',i => Math.sqrt(i.val/10^9)/2000 )
+  		.style('stroke-width',i => pathWidth(i.val) )
   		.style('stroke',i => i.source.country=='Canada' ? 'red' : 'blue');
   }
 
@@ -6709,7 +6722,7 @@
 
   function timeSlid(){
   	let selectedDate = month.offset( firstMonth, this.value );
-  	select('#year').text(year$1(selectedDate));
+  	select('#year').text(yearQuarter(selectedDate));
   	updateTime(selectedDate);
   }
 
