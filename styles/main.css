@@ -41,10 +41,14 @@ svg #investments path {
 	opacity: 0.25;
 	stroke: #00f;
 	stroke-width: 0.5; }
-svg #cities circle {
-	fill: black;
+svg g#cities g.city circle.inbound {
+	fill: green;
+	fill-opacity: 0.5;
+	stroke: green; }
+svg g#cities g.city circle.outbound {
+	fill: blue;
 	fill-opacity: 0.1;
-	stroke: black; }
+	stroke: blue; }
 svg #meta #year {
 	alignment-baseline: baseline;
 	font-size: 50px; }

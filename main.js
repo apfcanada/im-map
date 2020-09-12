@@ -36,7 +36,7 @@ window.onload = async function(){
 			.on('drag',updateDrag)
 		)
 		.call( zoom()
-			.scaleExtent([0.8,4])
+			.scaleExtent([0.5,4])
 			.on('zoom',zoomed)
 		)
 	json('data/countries.topojson').then( tjson => {
@@ -105,13 +105,16 @@ function updateTime(thisDate){
 	// sum investments over destination place
 	placesNow = [...placesNow]
 	placesNow.map( place => {
-		place.total =  investmentsNow
+		place.inboundTotal =  investmentsNow
 			.filter( i => i.dest.uid == place.uid )
+			.reduce( (a,b) => a + b.val, 0 )
+		place.outboundTotal =  investmentsNow
+			.filter( i => i.source.uid == place.uid )
 			.reduce( (a,b) => a + b.val, 0 )
 	} )
 	// update places on the map
 	select('g#cities')
-		.selectAll('circle')
+		.selectAll('g.city')
 		.data( placesNow, p=>p.uid )
 		.join( enterCity, updateCity, exitCity )
 	// update investments
@@ -122,22 +125,35 @@ function updateTime(thisDate){
 }
 
 function enterCity(enterSelection){
-	enterSelection.append('circle')
-		.attr('cx',d => prj(d.location)[0] )
-		.attr('cy',d => prj(d.location)[1] )
-		.call( circle => {
-			circle.append('title')
-				.text( d => `${d.city}, ${d.country}`) 
+	enterSelection.append('g')
+		.classed('city',true)
+		.call( g => {
+			g.append('title').text( d => `${d.city}, ${d.country}`)
+			// inner circle is inbound
+			g.append('circle').classed('inbound',true)
+				.attr('cx',d => prj(d.location)[0] )
+				.attr('cy',d => prj(d.location)[1] )
+				.attr('r',0)
+				.transition()
+				.attr('r', d => cityRadius(d.inboundTotal) )
+			g.append('circle').classed('outbound',true)
+				.attr('cx',d => prj(d.location)[0] )
+				.attr('cy',d => prj(d.location)[1] )
+				.attr('r',0)
+				.transition()
+				.attr('r', d => cityRadius(d.inboundTotal+d.outboundTotal) )
 		} )
-		.attr('r',0)
-		.transition()
-		.attr('r', d => cityRadius(d.total) )
 }
 
 function updateCity(updateSelection){
 	updateSelection
+		.select('circle.inbound')
 		.transition()
-		.attr('r', d => cityRadius(d.total) )
+		.attr('r', d => cityRadius(d.inboundTotal) )
+	updateSelection
+		.select('circle.outbound')
+		.transition()
+		.attr('r', d => cityRadius(d.inboundTotal+d.outboundTotal) )
 }
 
 function exitCity(exitSelection){
@@ -145,7 +161,7 @@ function exitCity(exitSelection){
 }
 
 function cityRadius(totalValue){
-	return 1 + Math.sqrt(totalValue/(10**6))/5
+	return 2 + Math.sqrt(totalValue/(10**6))
 }
 
 function pathWidth(investmentValue){
