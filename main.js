@@ -135,13 +135,16 @@ function enterCity(enterSelection){
 				.attr('cy',d => prj(d.location)[1] )
 				.attr('r',0)
 				.transition()
-				.attr('r', d => cityRadius(d.inboundTotal) )
+				.attr('r', d => cityRadius(d.inboundTotal))
+			// outer is outbound 
 			g.append('circle').classed('outbound',true)
 				.attr('cx',d => prj(d.location)[0] )
 				.attr('cy',d => prj(d.location)[1] )
 				.attr('r',0)
 				.transition()
-				.attr('r', d => cityRadius(d.inboundTotal+d.outboundTotal) )
+				.attr('r', d => {
+					return d.outboundTotal == 0 ? 0 : cityRadius(d.inboundTotal+d.outboundTotal)  
+				} )
 		} )
 }
 
