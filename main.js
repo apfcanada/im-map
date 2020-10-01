@@ -14,10 +14,11 @@ import { timeMonth } from 'd3-time'
 const width = 1000
 const height = 600
 
-const vancouver = [-123,49]
-
-var lambda = -vancouver[0] // yaw
-var phi = -vancouver[1] // pitch
+// map centered on vancouver
+const defaultCenter = [-123,49]
+// map manipulation vars
+var lambda = -defaultCenter[0] // yaw
+var phi = -defaultCenter[1] // pitch
 var gamma = 0 // roll
 var zoomFactor = 1
 
@@ -29,34 +30,10 @@ const yearQuarter = timeFormat('%Y-%q')
 updateProjection()
 
 window.onload = async function(){
-	// init SVG
-	const svg = select('svg#map')
-		.call( drag()
-			.on('start',setNewDragReference)
-			.on('drag',updateDrag)
-		)
-		.call( zoom()
-			.scaleExtent([0.5,4])
-			.on('zoom',zoomed)
-		)
-	json('data/countries.topojson').then( tjson => {
-		let countries = topojson.feature(tjson,'countries')
-		select('g#countries')
-			.selectAll('path')
-			.data(countries.features)
-			.join('path')
-			.attr('d', pathGen )
-			.attr('id', d => d.properties.ISO_A3 )
-			.attr('class','country')
-			.append('title')
-			.text( d => d.properties.NAME )
-	} )
-	select('g#graticules')
-		.selectAll('path')
-		.data( geoGraticule().lines() )
-		.join('path')
-		.attr('d', pathGen )
+	setupListeners()
+	loadBasemap()
 	
+	// wait for places since this will be joined to the investment dataset
 	await csv('data/places.csv').then( data => {
 		places = data.filter( p => p.lon != '' )
 		places.map( p => {
@@ -89,6 +66,34 @@ window.onload = async function(){
 		.on('input',timeSlid)
 	select('#year').text(yearQuarter(firstMonth))
 	updateTime(firstMonth)
+}
+
+function setupListeners(){
+	select('svg#map')
+		.call( drag().on('start',setNewDragReference).on('drag',updateDrag) )
+		.call( zoom().scaleExtent([0.5,4]).on('zoom',zoomed) )
+	select('button#start-stop')
+		.on('click',toggleAnimation)
+}
+
+function loadBasemap(){
+	json('data/countries.topojson').then( tjson => {
+		let countries = topojson.feature(tjson,'countries')
+		select('g#countries')
+			.selectAll('path')
+			.data(countries.features)
+			.join('path')
+			.attr('d', pathGen )
+			.attr('id', d => d.properties.ISO_A3 )
+			.attr('class','country')
+			.append('title')
+			.text( d => d.properties.NAME )
+	} )
+	select('g#graticules')
+		.selectAll('path')
+		.data( geoGraticule().lines() )
+		.join('path')
+		.attr('d', pathGen )
 }
 
 function updateTime(thisDate){
@@ -234,4 +239,23 @@ function updateProjection(){
 		.attr('cy',d => prj(d.location)[1] )
 	selectAll('#investments path')
 		.attr('d',investment => pathGen(investment.arc))
+}
+
+function toggleAnimation(){
+	let button = select(event.target)
+	switch( button.text() ){
+		case 'Start animation':
+			startTime()
+			return button.text('Stop animation')
+		case 'Stop animation':
+			stopTime()
+			return button.text('Start animation')
+	}
+}
+
+function startTime(){
+	
+}
+function stopTime(){
+	
 }
