@@ -1,0 +1,936 @@
+region,country,state,city,lat,lon,uid
+Oceania,Australia,Australian Capital Territory,Canberra,-35.283,149.128,1
+Oceania,Australia,New South Wales,Cargo,-33.424,148.809,2
+Oceania,Australia,New South Wales,Casino,-28.858,153.047,3
+Oceania,Australia,New South Wales,Henty,-35.521,147.034,4
+Oceania,Australia,New South Wales,Lake Cowal,-33.605,147.44,5
+Oceania,Australia,New South Wales,Lue,-32.651,149.849,6
+Oceania,Australia,New South Wales,Mass Vale,-34.55,150.387,7
+Oceania,Australia,New South Wales,Muswellbrook,-32.261,150.89,8
+Oceania,Australia,New South Wales,Narrabri,-30.325,149.783,9
+Oceania,Australia,New South Wales,Newcastle,-32.93,151.78,10
+Oceania,Australia,New South Wales,Sydney,-33.868,151.207,11
+Oceania,Australia,New South Wales,Temora,-34.445,147.536,12
+Oceania,Australia,New South Wales,,,,13
+Oceania,Australia,Northern Territory,Alice Springs,-23.697,133.884,14
+Oceania,Australia,Northern Territory,Barrow Creek,-21.38,133.976,15
+Oceania,Australia,Northern Territory,Borroloola,-16.07,136.307,16
+Oceania,Australia,Northern Territory,Darwin,-12.398,130.882,17
+Oceania,Australia,Northern Territory,Gove Peninsula,-12.333,136.817,18
+Oceania,Australia,Northern Territory,Mount Thomas,-34.441,150.872,19
+Oceania,Australia,Northern Territory,Pine Creek,-13.823,131.833,20
+Oceania,Australia,Northern Territory,,,,21
+Oceania,Australia,Queensland,Brisbane,-27.468,153.028,22
+Oceania,Australia,Queensland,Cairns,-16.924,145.766,23
+Oceania,Australia,Queensland,Cloncurry,-20.707,140.513,24
+Oceania,Australia,Queensland,Georgetown,5.424,100.322,25
+Oceania,Australia,Queensland,Gladstone,-33.267,138.357,26
+Oceania,Australia,Queensland,Gold Coast,-28,153.431,27
+Oceania,Australia,Queensland,Longreach,-23.442,144.249,28
+Oceania,Australia,Queensland,Mackay,-21.153,149.166,29
+Oceania,Australia,Queensland,Milton,-27.469,153.006,30
+Oceania,Australia,Queensland,Mount Hogan,-31.133,121.915,31
+Oceania,Australia,Queensland,Mount Isa,-20.725,139.497,32
+Oceania,Australia,Queensland,Northwest Queensland,-20.918,142.703,33
+Oceania,Australia,Queensland,Redland City,-27.552,153.256,34
+Oceania,Australia,Queensland,Reedy Creek,-28.112,153.396,35
+Oceania,Australia,Queensland,Richlands,-27.588,152.954,36
+Oceania,Australia,Queensland,Southport,-27.974,151.418,37
+Oceania,Australia,Queensland,Surat,-27.152,149.067,38
+Oceania,Australia,Queensland,Thargomindah,-27.994,143.823,39
+Oceania,Australia,Queensland,Toowoomba,-27.561,151.954,40
+Oceania,Australia,Queensland,,,,41
+Oceania,Australia,South Australia,Adelaide,-34.929,138.599,42
+Oceania,Australia,South Australia,Barton Siding,-30.52,132.658,43
+Oceania,Australia,South Australia,Bowmans,-34.161,138.303,44
+Oceania,Australia,South Australia,Burnside,-34.938,138.666,45
+Oceania,Australia,South Australia,Carrapateena,-31.258,137.482,46
+Oceania,Australia,South Australia,Crafers,-35,138.7,47
+Oceania,Australia,South Australia,Curnamona,-31.649,139.55,48
+Oceania,Australia,South Australia,Honeymoon,-31.443,140.394,49
+Oceania,Australia,South Australia,Karkarook,-33.645,136.253,50
+Oceania,Australia,South Australia,Mount Sarah,-26.935,135.348,51
+Oceania,Australia,South Australia,,,,52
+Oceania,Australia,Tasmania,Devonport,-41.177,146.345,53
+Oceania,Australia,Tasmania,Hobart,-42.879,147.329,54
+Oceania,Australia,Tasmania,Smithton,-40.846,145.125,55
+Oceania,Australia,Victoria,Bannerton,-34.679,142.843,56
+Oceania,Australia,Victoria,Barnawartha,-36.104,146.676,57
+Oceania,Australia,Victoria,Bendigo,-36.758,144.28,58
+Oceania,Australia,Victoria,Geelong,-38.147,144.361,59
+Oceania,Australia,Victoria,Hamilton,-37.744,142.022,60
+Oceania,Australia,Victoria,Melbourne,-37.814,144.963,61
+Oceania,Australia,Victoria,Strathbogie,-36.879,145.711,62
+Oceania,Australia,Victoria,Warrnambool,-38.382,142.488,63
+Oceania,Australia,Victoria,,,,64
+Oceania,Australia,Western Australia,Broome,-17.955,122.239,65
+Oceania,Australia,Western Australia,Burrup Peninsula,-20.558,116.833,66
+Oceania,Australia,Western Australia,Dampier,-20.663,116.713,67
+Oceania,Australia,Western Australia,East Kimberley,-15.463,128.442,68
+Oceania,Australia,Western Australia,Exmouth,-21.931,114.121,69
+Oceania,Australia,Western Australia,Gascoyne Region,-24.545,115.284,70
+Oceania,Australia,Western Australia,Kalgoorlie,-30.746,121.474,71
+Oceania,Australia,Western Australia,Kalumburu,-14.294,126.645,72
+Oceania,Australia,Western Australia,Kambalda,-31.202,121.662,73
+Oceania,Australia,Western Australia,Kanowna,-30.486,121.35,74
+Oceania,Australia,Western Australia,Karratha,-20.738,116.846,75
+Oceania,Australia,Western Australia,Kimberley,-17.349,125.915,76
+Oceania,Australia,Western Australia,Lake Johnston,-32.155,120.757,77
+Oceania,Australia,Western Australia,Leonora,-28.885,121.331,78
+Oceania,Australia,Western Australia,Margaret River,-33.955,115.076,79
+Oceania,Australia,Western Australia,Norseman,-32.198,121.779,80
+Oceania,Australia,Western Australia,Perth,-31.952,115.861,81
+Oceania,Australia,Western Australia,Pilbara,-21.592,121.524,82
+Oceania,Australia,Western Australia,Port Hedland,-20.312,118.611,83
+Oceania,Australia,Western Australia,Ravensthorpe,-33.583,120.047,84
+Oceania,Australia,Western Australia,Roebourne,-20.772,117.146,85
+Oceania,Australia,Western Australia,Telfer,-21.212,123.262,86
+Oceania,Australia,Western Australia,Wiluna,-26.592,120.224,87
+Oceania,Australia,Western Australia,,,,88
+Oceania,Australia,,,,,89
+South Asia,Bangladesh,Dhaka,Dhaka,23.71,90.407,90
+South Asia,Bangladesh,Dhaka,Gopalganj,23.013,89.822,91
+South Asia,Bangladesh,,,,,92
+Southeast Asia,Brunei,Brunei-Muara,Bandar Seri Begawan,4.89,114.94,93
+Southeast Asia,Cambodia,Battambang,Battambang,13.103,103.198,94
+Southeast Asia,Cambodia,Phnom Penh,Phnom Penh,11.562,104.916,95
+Southeast Asia,Cambodia,Ratanakiri,Ou Ya Dav,13.671,107.347,96
+Southeast Asia,Cambodia,Siem Reap,Siem Reap,13.362,103.861,97
+Western Canada,Canada,Alberta,Airdrie,51.293,-114.013,98
+Western Canada,Canada,Alberta,Anzac,56.448,-111.037,99
+Western Canada,Canada,Alberta,Calgary,51.083,-114.083,100
+Western Canada,Canada,Alberta,Cold Lake,54.464,-110.173,101
+Western Canada,Canada,Alberta,Duvernay,53.773,-111.688,102
+Western Canada,Canada,Alberta,Edmonton,53.55,-113.5,103
+Western Canada,Canada,Alberta,Fort McMurray,56.727,-111.379,104
+Western Canada,Canada,Alberta,Innisfail,52.027,-113.95,105
+Western Canada,Canada,Alberta,Leduc,53.265,-113.553,106
+Western Canada,Canada,Alberta,Lethbridge,49.696,-112.845,107
+Western Canada,Canada,Alberta,Lloydminster,53.278,-110.005,108
+Western Canada,Canada,Alberta,Medicine Hat,50.029,-110.703,109
+Western Canada,Canada,Alberta,Picture Butte,49.878,-112.78,110
+Western Canada,Canada,Alberta,Stettler,52.323,-112.719,111
+Western Canada,Canada,Alberta,Strathmore,51.038,-113.4,112
+Western Canada,Canada,Alberta,Valleyview,55.069,-117.281,113
+Western Canada,Canada,Alberta,Wandering River,55.201,-112.465,114
+Western Canada,Canada,Alberta,Wheatland County,51.183,-112.982,115
+Western Canada,Canada,Alberta,,,,116
+Western Canada,Canada,British Columbia,Abbotsford,49.05,-122.305,117
+Western Canada,Canada,British Columbia,Ashcroft,50.726,-121.281,118
+Western Canada,Canada,British Columbia,Britannia Beach,49.624,-123.206,119
+Western Canada,Canada,British Columbia,Burnaby,49.249,-122.981,120
+Western Canada,Canada,British Columbia,Chilliwack,49.158,-121.951,121
+Western Canada,Canada,British Columbia,Coquitlam,49.284,-122.793,122
+Western Canada,Canada,British Columbia,Crowsnest,49.626,-114.689,123
+Western Canada,Canada,British Columbia,Dawson Creek,55.76,-120.238,124
+Western Canada,Canada,British Columbia,Delta,49.095,-123.026,125
+Western Canada,Canada,British Columbia,Duncan,48.779,-123.708,126
+Western Canada,Canada,British Columbia,Esquimalt,48.436,-123.411,127
+Western Canada,Canada,British Columbia,Fort Nelson,58.805,-122.697,128
+Western Canada,Canada,British Columbia,Hendrix Lake,52.092,-120.793,129
+Western Canada,Canada,British Columbia,Kamloops,50.678,-120.342,130
+Western Canada,Canada,British Columbia,Kelowna,49.888,-119.496,131
+Western Canada,Canada,British Columbia,Kitimat,54.049,-128.628,132
+Western Canada,Canada,British Columbia,Ladysmith,48.995,-123.816,133
+Western Canada,Canada,British Columbia,Langley,49.104,-122.66,134
+Western Canada,Canada,British Columbia,Lelu Island,54.201,-130.289,135
+Western Canada,Canada,British Columbia,Maple Ridge,49.217,-122.603,136
+Western Canada,Canada,British Columbia,Nelson Forks,59.497,-124.008,137
+Western Canada,Canada,British Columbia,North Montney,56.27,-120.55,138
+Western Canada,Canada,British Columbia,North Vancouver,49.32,-123.072,139
+Western Canada,Canada,British Columbia,Parksville,49.319,-124.314,140
+Western Canada,Canada,British Columbia,Peace River Coalfields,55.127,-120.997,141
+Western Canada,Canada,British Columbia,Pitt Meadows,49.221,-122.692,142
+Western Canada,Canada,British Columbia,Prince George,53.917,-122.75,143
+Western Canada,Canada,British Columbia,Prince Rupert,54.315,-130.321,144
+Western Canada,Canada,British Columbia,Qualicum Beach,49.348,-124.443,145
+Western Canada,Canada,British Columbia,Revelstoke,50.998,-118.196,146
+Western Canada,Canada,British Columbia,Richmond,49.167,-123.134,147
+Western Canada,Canada,British Columbia,Smithers,54.782,-127.169,148
+Western Canada,Canada,British Columbia,Sparwood,49.734,-114.88,149
+Western Canada,Canada,British Columbia,Squamish,49.702,-123.156,150
+Western Canada,Canada,British Columbia,Summerland,49.607,-119.677,151
+Western Canada,Canada,British Columbia,Surrey,49.191,-122.849,152
+Western Canada,Canada,British Columbia,Vancouver,49.283,-123.121,153
+Western Canada,Canada,British Columbia,Vernon,50.269,-119.274,154
+Western Canada,Canada,British Columbia,Victoria,48.428,-123.366,155
+Western Canada,Canada,British Columbia,West Vancouver,49.334,-123.17,156
+Western Canada,Canada,British Columbia,Whistler,50.116,-122.957,157
+Western Canada,Canada,British Columbia,Whiterock,49.024,-122.805,158
+Western Canada,Canada,British Columbia,,,,159
+Western Canada,Canada,Manitoba,Killarney,49.182,-99.665,160
+Western Canada,Canada,Manitoba,Kola,49.843,-101.373,161
+Western Canada,Canada,Manitoba,La Broquerie,49.521,-96.51,162
+Western Canada,Canada,Manitoba,Lac du Bonnet,50.259,-96.062,163
+Western Canada,Canada,Manitoba,Letellier,49.135,-97.303,164
+Western Canada,Canada,Manitoba,Mcauley,50.262,-101.388,165
+Western Canada,Canada,Manitoba,Minnedosa,50.247,-99.839,166
+Western Canada,Canada,Manitoba,Morris,49.355,-97.365,167
+Western Canada,Canada,Manitoba,Neepawa,50.228,-99.467,168
+Western Canada,Canada,Manitoba,Portage la Prairie,49.972,-98.29,169
+Western Canada,Canada,Manitoba,Saint Andrews,50.306,-97.024,170
+Western Canada,Canada,Manitoba,Saint Malo,49.314,-96.954,171
+Western Canada,Canada,Manitoba,Sanford,49.68,-98.446,172
+Western Canada,Canada,Manitoba,Stephens Lake,56.388,-94.868,173
+Western Canada,Canada,Manitoba,Virden,49.849,-100.933,174
+Western Canada,Canada,Manitoba,Winnipeg,49.895,-97.138,175
+Western Canada,Canada,Manitoba,,,,176
+Atlantic Canada,Canada,New Brunswick,Florenceville,46.441,-67.617,177
+Atlantic Canada,Canada,New Brunswick,Fredericton,45.97,-66.65,178
+Atlantic Canada,Canada,New Brunswick,Hoyt,45.586,-66.554,179
+Atlantic Canada,Canada,New Brunswick,Moncton,46.088,-64.778,180
+Atlantic Canada,Canada,New Brunswick,Nackawic,45.989,-67.241,181
+Atlantic Canada,Canada,New Brunswick,Riverview,46.061,-64.805,182
+Atlantic Canada,Canada,New Brunswick,St John,45.28,-66.06,183
+Atlantic Canada,Canada,New Brunswick,St Laurent,47.72,-65.77,184
+Atlantic Canada,Canada,New Brunswick,St. John,45.273,-66.063,185
+Atlantic Canada,Canada,New Brunswick,Val-Comeau,47.456,-64.885,186
+Atlantic Canada,Canada,Newfoundland and Labrador,Glenwood,48.997,-54.869,187
+Atlantic Canada,Canada,Newfoundland and Labrador,Postville,54.908,-59.773,188
+Atlantic Canada,Canada,Newfoundland and Labrador,Snelgrove Lake,54.617,-65.833,189
+Atlantic Canada,Canada,Newfoundland and Labrador,St. John's,47.562,-52.713,190
+Northern Canada,Canada,Northwest Territories,Ekati,64.708,-110.618,191
+Northern Canada,Canada,Northwest Territories,Inuvik,68.361,-133.723,192
+Northern Canada,Canada,Northwest Territories,,,,193
+Atlantic Canada,Canada,Nova Scotia,Bedford,44.723,-63.69,194
+Atlantic Canada,Canada,Nova Scotia,Dartmouth,44.666,-63.568,195
+Atlantic Canada,Canada,Nova Scotia,Eastern Passage,44.612,-63.473,196
+Atlantic Canada,Canada,Nova Scotia,Halifax,44.649,-63.575,197
+Atlantic Canada,Canada,Nova Scotia,Melford,45.873,-61.26,198
+Atlantic Canada,Canada,Nova Scotia,North Sydney,46.206,-60.252,199
+Atlantic Canada,Canada,Nova Scotia,Pictou County,45.578,-62.651,200
+Atlantic Canada,Canada,Nova Scotia,Port Hawkesbury,45.628,-61.359,201
+Atlantic Canada,Canada,Nova Scotia,Sydney,46.13,-60.19,202
+Atlantic Canada,Canada,Nova Scotia,Windsor,44.98,-64.13,203
+Atlantic Canada,Canada,Nova Scotia,,,,204
+Northern Canada,Canada,Nunavut,Kugaaruk,68.535,-89.825,205
+Central Canada,Canada,Ontario,Ajax,43.86,-79.025,206
+Central Canada,Canada,Ontario,Alliston,44.154,-79.869,207
+Central Canada,Canada,Ontario,Ancaster,43.21,-79.987,208
+Central Canada,Canada,Ontario,Arthur,43.496,-80.322,209
+Central Canada,Canada,Ontario,Aurora,44.007,-79.45,210
+Central Canada,Canada,Ontario,Barrie,44.389,-79.69,211
+Central Canada,Canada,Ontario,Belleville,44.163,-77.383,212
+Central Canada,Canada,Ontario,Bolton,43.88,-79.738,213
+Central Canada,Canada,Ontario,Bowmanville,43.913,-78.688,214
+Central Canada,Canada,Ontario,Brampton,43.731,-79.762,215
+Central Canada,Canada,Ontario,Brantford,43.139,-80.264,216
+Central Canada,Canada,Ontario,Burlington,43.325,-79.799,217
+Central Canada,Canada,Ontario,Cambridge,43.362,-80.314,218
+Central Canada,Canada,Ontario,Chatham-Kent,42.405,-82.191,219
+Central Canada,Canada,Ontario,Chesley,44.303,-81.097,220
+Central Canada,Canada,Ontario,Courtright,42.819,-82.468,221
+Central Canada,Canada,Ontario,Dufferin,44.083,-80.167,222
+Central Canada,Canada,Ontario,Elmira,43.6,-80.563,223
+Central Canada,Canada,Ontario,Georgetown,43.649,-79.904,224
+Central Canada,Canada,Ontario,Guelph,43.545,-80.248,225
+Central Canada,Canada,Ontario,Halton,43.532,-79.874,226
+Central Canada,Canada,Ontario,Hamilton,43.25,-79.87,227
+Central Canada,Canada,Ontario,Ingersoll,43.038,-80.884,228
+Central Canada,Canada,Ontario,Inkerman,45.04,-75.395,229
+Central Canada,Canada,Ontario,Iroquois,44.847,-75.319,230
+Central Canada,Canada,Ontario,Kanata,45.308,-75.899,231
+Central Canada,Canada,Ontario,Kemptville,45.016,-75.646,232
+Central Canada,Canada,Ontario,Kenora,49.767,-94.489,233
+Central Canada,Canada,Ontario,Kingston,44.231,-76.486,234
+Central Canada,Canada,Ontario,Kitchener,43.452,-80.493,235
+Central Canada,Canada,Ontario,Leamington,42.053,-82.6,236
+Central Canada,Canada,Ontario,Lindsay,44.353,-78.744,237
+Central Canada,Canada,Ontario,London,42.985,-81.245,238
+Central Canada,Canada,Ontario,Markham,43.856,-79.337,239
+Central Canada,Canada,Ontario,Milton,43.518,-79.877,240
+Central Canada,Canada,Ontario,Mississauga,43.589,-79.644,241
+Central Canada,Canada,Ontario,New Hamburg,43.378,-80.709,242
+Central Canada,Canada,Ontario,Newmarket,44.059,-79.461,243
+Central Canada,Canada,Ontario,Niagara Falls,43.09,-79.085,244
+Central Canada,Canada,Ontario,North Bay,46.309,-79.461,245
+Central Canada,Canada,Ontario,Oakville,43.468,-79.688,246
+Central Canada,Canada,Ontario,Orangeville,43.92,-80.094,247
+Central Canada,Canada,Ontario,Oshawa,43.897,-78.866,248
+Central Canada,Canada,Ontario,Ottawa,45.417,-75.7,249
+Central Canada,Canada,Ontario,Pembroke,45.827,-77.111,250
+Central Canada,Canada,Ontario,Peterborough,44.309,-78.32,251
+Central Canada,Canada,Ontario,Pickering,43.838,-79.087,252
+Central Canada,Canada,Ontario,Port Elgin,44.434,-81.393,253
+Central Canada,Canada,Ontario,Port Perry,43.382,-80.706,254
+Central Canada,Canada,Ontario,Red Lake,51.015,-93.829,255
+Central Canada,Canada,Ontario,Richmond Hill,43.883,-79.44,256
+Central Canada,Canada,Ontario,Sarnia,42.974,-82.407,257
+Central Canada,Canada,Ontario,Sault Ste Marie,46.531,-84.364,258
+Central Canada,Canada,Ontario,Schomberg,44.001,-79.683,259
+Central Canada,Canada,Ontario,Shelburne,44.079,-80.201,260
+Central Canada,Canada,Ontario,Smiths Falls,44.901,-76.025,261
+Central Canada,Canada,Ontario,St. Catharines,43.159,-79.247,262
+Central Canada,Canada,Ontario,St. Thomas,42.778,-81.183,263
+Central Canada,Canada,Ontario,Stratford,43.37,-80.982,264
+Central Canada,Canada,Ontario,Strathroy,42.596,-81.622,265
+Central Canada,Canada,Ontario,Sudbury,46.492,-80.993,266
+Central Canada,Canada,Ontario,Tecumseh,42.312,-82.886,267
+Central Canada,Canada,Ontario,Terrace Bay,48.784,-87.097,268
+Central Canada,Canada,Ontario,Thornhill,43.817,-79.427,269
+Central Canada,Canada,Ontario,Thunder Bay,48.381,-89.248,270
+Central Canada,Canada,Ontario,Timmins,48.476,-81.331,271
+Central Canada,Canada,Ontario,Toronto,43.651,-79.347,272
+Central Canada,Canada,Ontario,Unionville,43.865,-79.31,273
+Central Canada,Canada,Ontario,Vaughan,43.856,-79.508,274
+Central Canada,Canada,Ontario,Wallaceburg,42.593,-82.388,275
+Central Canada,Canada,Ontario,Waterloo,43.464,-80.52,276
+Central Canada,Canada,Ontario,Windsor,42.315,-83.036,277
+Central Canada,Canada,Ontario,Woodbridge,43.775,-79.611,278
+Central Canada,Canada,Ontario,Woodstock,43.132,-80.747,279
+Central Canada,Canada,Ontario,,,,280
+Atlantic Canada,Canada,Prince Edward Island,Charlottetown,46.238,-63.139,281
+Atlantic Canada,Canada,Prince Edward Island,Stratford,46.21,-63.08,282
+Atlantic Canada,Canada,Prince Edward Island,Summerside,46.393,-63.79,283
+Central Canada,Canada,Quebec,Abitibi-Témiscamingue,47.734,-77.673,284
+Central Canada,Canada,Quebec,Anjou,45.609,-73.573,285
+Central Canada,Canada,Quebec,Beauharnois,45.315,-73.878,286
+Central Canada,Canada,Quebec,Becancour,46.351,-72.435,287
+Central Canada,Canada,Quebec,Boucherville,45.591,-73.436,288
+Central Canada,Canada,Quebec,Brossard,45.451,-73.462,289
+Central Canada,Canada,Quebec,Dorval,45.45,-73.75,290
+Central Canada,Canada,Quebec,Drummondville,45.886,-72.495,291
+Central Canada,Canada,Quebec,Duncan Lake,53.48,-77.95,292
+Central Canada,Canada,Quebec,Granby,45.403,-72.737,293
+Central Canada,Canada,Quebec,Grand-Mère,46.613,-72.688,294
+Central Canada,Canada,Quebec,James Bay,53.537,-80.546,295
+Central Canada,Canada,Quebec,Joliette,46.014,-73.418,296
+Central Canada,Canada,Quebec,Jonquiere,48.424,-71.24,297
+Central Canada,Canada,Quebec,Kirkland,45.456,-73.862,298
+Central Canada,Canada,Quebec,Labrador Trough,52.777,-67.319,299
+Central Canada,Canada,Quebec,Laval,45.607,-73.712,300
+Central Canada,Canada,Quebec,Les Cèdres,45.311,-74.062,301
+Central Canada,Canada,Quebec,Levis,46.743,-71.238,302
+Central Canada,Canada,Quebec,Longueuil,45.537,-73.511,303
+Central Canada,Canada,Quebec,Louiseville,46.253,-72.942,304
+Central Canada,Canada,Quebec,Magog,45.266,-72.152,305
+Central Canada,Canada,Quebec,Masson,45.55,-75.418,306
+Central Canada,Canada,Quebec,Mirabel,45.652,-74.09,307
+Central Canada,Canada,Quebec,Montebello,45.65,-74.94,308
+Central Canada,Canada,Quebec,Montreal,45.5,-73.583,309
+Central Canada,Canada,Quebec,Pointe-Claire,45.472,-73.799,310
+Central Canada,Canada,Quebec,Quebec City,46.8,-71.25,311
+Central Canada,Canada,Quebec,Rivière-du-Loup,47.836,-69.547,312
+Central Canada,Canada,Quebec,Rouyn-Noranda,48.234,-79.019,313
+Central Canada,Canada,Quebec,Saint-Bruno-de-Montarville,45.526,-73.341,314
+Central Canada,Canada,Quebec,Saint-Georges,46.123,-70.673,315
+Central Canada,Canada,Quebec,Saint-Hubert,45.498,-73.406,316
+Central Canada,Canada,Quebec,Saint-Hyacinthe,45.631,-72.956,317
+Central Canada,Canada,Quebec,Saint-Laurent,45.498,-73.751,318
+Central Canada,Canada,Quebec,Sainte-Anne-De-Bellevue,45.427,-73.937,319
+Central Canada,Canada,Quebec,Sherbrooke,45.404,-71.893,320
+Central Canada,Canada,Quebec,St. Hyacinthe,45.631,-72.956,321
+Central Canada,Canada,Quebec,Trois-Rivieres,46.343,-72.542,322
+Central Canada,Canada,Quebec,Val-d'Or,48.099,-77.797,323
+Central Canada,Canada,Quebec,Valcourt,45.492,-72.316,324
+Central Canada,Canada,Quebec,Vanier,46.822,-71.265,325
+Central Canada,Canada,Quebec,Varennes,45.681,-73.438,326
+Central Canada,Canada,Quebec,Victoriaville,46.056,-71.959,327
+Central Canada,Canada,Quebec,Westmount,45.484,-73.603,328
+Central Canada,Canada,Quebec,,,,329
+Western Canada,Canada,Saskatchewan,Edam,53.188,-108.767,330
+Western Canada,Canada,Saskatchewan,Estevan,49.139,-102.992,331
+Western Canada,Canada,Saskatchewan,Jansen,51.788,-104.717,332
+Western Canada,Canada,Saskatchewan,Lloydminster,53.278,-110.006,333
+Western Canada,Canada,Saskatchewan,Maidstone,53.088,-109.292,334
+Western Canada,Canada,Saskatchewan,Meadow Lake,54.132,-108.428,335
+Western Canada,Canada,Saskatchewan,Mervin,53.335,-108.876,336
+Western Canada,Canada,Saskatchewan,Regina,50.445,-104.619,337
+Western Canada,Canada,Saskatchewan,Regina,50.463,-104.621,338
+Western Canada,Canada,Saskatchewan,Rush Lake,50.405,-107.403,339
+Western Canada,Canada,Saskatchewan,Saskatoon,52.133,-106.647,340
+Western Canada,Canada,Saskatchewan,Spruce Lake,53.323,-109.513,341
+Western Canada,Canada,Saskatchewan,Wolseley,50.424,-103.268,342
+Western Canada,Canada,Saskatchewan,Yorkton,51.217,-102.474,343
+Western Canada,Canada,Saskatchewan,,,,344
+Northern Canada,Canada,Yukon,Pelly Crossing,62.818,-136.569,345
+Northern Canada,Canada,Yukon,Ross River,61.979,-132.448,346
+Northern Canada,Canada,Yukon,,,,347
+,Canada,,,,,348
+East Asia,China (Mainland),Anhui,Bengbu,32.941,117.361,349
+East Asia,China (Mainland),Anhui,Chizhou,30.661,117.478,350
+East Asia,China (Mainland),Anhui,Chuzhou,32.322,118.298,351
+East Asia,China (Mainland),Anhui,Fuyang,32.9,115.817,352
+East Asia,China (Mainland),Anhui,Hefei,31.864,117.281,353
+East Asia,China (Mainland),Anhui,Tongling,30.992,117.83,354
+East Asia,China (Mainland),Anhui,Wuhu,31.337,118.374,355
+East Asia,China (Mainland),Beijing Municipality,Beijing,39.907,116.397,356
+East Asia,China (Mainland),China,,,,357
+East Asia,China (Mainland),Chongqing Municipality,Chongqing,29.563,106.553,358
+East Asia,China (Mainland),Fujian,Fuzhou,26.061,119.306,359
+East Asia,China (Mainland),Fujian,Jinjiang,24.752,118.535,360
+East Asia,China (Mainland),Fujian,Longyan,25.107,117.022,361
+East Asia,China (Mainland),Fujian,Quanzhou,25.945,111.036,362
+East Asia,China (Mainland),Fujian,Xiamen,24.48,118.082,363
+East Asia,China (Mainland),Fujian,,,,364
+East Asia,China (Mainland),Gansu,Baiyin,36.547,104.17,365
+East Asia,China (Mainland),Gansu,Gannan Tibetan Autonomous Prefecture,34.983,102.911,366
+East Asia,China (Mainland),Gansu,Jinchang,38.497,102.208,367
+East Asia,China (Mainland),Gansu,Longnan,24.9,114.783,368
+East Asia,China (Mainland),Gansu,Tianshui,34.58,105.742,369
+East Asia,China (Mainland),Gansu,,,,370
+East Asia,China (Mainland),Guangdong,Dongguan,30.012,120.814,371
+East Asia,China (Mainland),Guangdong,Foshan,23.027,113.131,372
+East Asia,China (Mainland),Guangdong,Foshan City,22.964,113.103,373
+East Asia,China (Mainland),Guangdong,Gaoyao,23.024,112.446,374
+East Asia,China (Mainland),Guangdong,Guangzhou,23.117,113.25,375
+East Asia,China (Mainland),Guangdong,Heyuan,23.733,114.683,376
+East Asia,China (Mainland),Guangdong,Huizhou,23.111,114.415,377
+East Asia,China (Mainland),Guangdong,Panyu District,22.561,113.214,378
+East Asia,China (Mainland),Guangdong,Qingyuan,35.137,104.222,379
+East Asia,China (Mainland),Guangdong,Shenzhen,29.416,121.34,380
+East Asia,China (Mainland),Guangdong,Yunfu,22.928,112.04,381
+East Asia,China (Mainland),Guangdong,Zhaoqing,23.049,112.461,382
+East Asia,China (Mainland),Guangdong,Zhongshan,26.983,106.217,383
+East Asia,China (Mainland),Guangdong,Zhuhai,22.277,113.568,384
+East Asia,China (Mainland),Guangxi Zhuang Autonomous Region,Fangchenggang,21.687,108.354,385
+East Asia,China (Mainland),Guangxi Zhuang Autonomous Region,Hechi,24.693,108.085,386
+East Asia,China (Mainland),Guangxi Zhuang Autonomous Region,,,,387
+East Asia,China (Mainland),Guizhou,Guiyang,26.583,106.717,388
+East Asia,China (Mainland),Guizhou,Panzhou,21.926,110.849,389
+East Asia,China (Mainland),Guizhou,Qiandongnan Miao and Dong Autonomous Prefecture,26.346,107.586,390
+East Asia,China (Mainland),Guizhou,Qianxinan Buyei and Miao Autonomous Prefecture,25.088,104.906,391
+East Asia,China (Mainland),Guizhou,Xingyi City,25.092,104.895,392
+East Asia,China (Mainland),Guizhou,Zunyi,27.687,106.907,393
+East Asia,China (Mainland),Guizhou,,,,394
+East Asia,China (Mainland),Hainan,Haikou,20.006,110.216,395
+East Asia,China (Mainland),Hainan,Qiongzhong Li and Miao Autonomous Prefecture ,19.339,109.502,396
+East Asia,China (Mainland),Hainan,Sanya,18.243,109.505,397
+East Asia,China (Mainland),Hainan,,,,398
+East Asia,China (Mainland),Hebei,Langfang,39.284,116.542,399
+East Asia,China (Mainland),Hebei,Qinghuangdao,39.94,119.598,400
+East Asia,China (Mainland),Hebei,Shijiazhuang,38.575,112.016,401
+East Asia,China (Mainland),Hebei,Tangshan,39.638,118.156,402
+East Asia,China (Mainland),Hebei,Wuhan,30.597,114.299,403
+East Asia,China (Mainland),Hebei,Xingtai,32.686,120.075,404
+East Asia,China (Mainland),Hebei,,,,405
+East Asia,China (Mainland),Heilongjiang,Daqing,46.583,125,406
+East Asia,China (Mainland),Heilongjiang,Harbin,45.75,126.65,407
+East Asia,China (Mainland),Heilongjiang,Shuangyashan,46.636,131.154,408
+East Asia,China (Mainland),Heilongjiang,Yantai,37.476,121.441,409
+East Asia,China (Mainland),Heilongjiang,Zhaodong,46.044,125.953,410
+East Asia,China (Mainland),Heilongjiang,,,,411
+East Asia,China (Mainland),Henan,Lingbao,34.517,110.894,412
+East Asia,China (Mainland),Henan,Luoyang,34.711,119.107,413
+East Asia,China (Mainland),Henan,Nanyang,31.874,121.709,414
+East Asia,China (Mainland),Henan,Sanmenxia,34.773,111.2,415
+East Asia,China (Mainland),Henan,Zhengzhou,34.758,113.649,416
+East Asia,China (Mainland),Hubei,Lichuan,30.3,108.85,417
+East Asia,China (Mainland),Hubei,Wuhan,30.583,114.267,418
+East Asia,China (Mainland),Hubei,Yichang,30.714,111.285,419
+East Asia,China (Mainland),Hunan,Changde,29.032,111.698,420
+East Asia,China (Mainland),Hunan,Changsha,22.381,112.685,421
+East Asia,China (Mainland),Hunan,Chenzhou,25.8,113.033,422
+East Asia,China (Mainland),Hunan,Huaihua,27.563,110.004,423
+East Asia,China (Mainland),Hunan,Shaoyang,32.923,119.808,424
+East Asia,China (Mainland),Hunan,Xiangtan,27.85,112.9,425
+East Asia,China (Mainland),Hunan,Zhangjiajie,29.129,110.478,426
+East Asia,China (Mainland),Hunan,Zhuzhou,27.833,113.15,427
+East Asia,China (Mainland),Hunan,,,,428
+East Asia,China (Mainland),Inner Mongolia Autonomous Region,Baotou,40.583,110.017,429
+East Asia,China (Mainland),Inner Mongolia Autonomous Region,Chifeng,23.818,116.541,430
+East Asia,China (Mainland),Inner Mongolia Autonomous Region,Tongliao,43.612,122.265,431
+East Asia,China (Mainland),Inner Mongolia Autonomous Region,Ulanqab,40.995,113.133,432
+East Asia,China (Mainland),Inner Mongolia Autonomous Region,Zhalantun,48.009,122.737,433
+East Asia,China (Mainland),Inner Mongolia Autonomous Region,,,,434
+East Asia,China (Mainland),Jiangsu,Changzhou,31.774,119.954,435
+East Asia,China (Mainland),Jiangsu,Jiangyin,31.915,120.281,436
+East Asia,China (Mainland),Jiangsu,Kunshan,31.378,120.954,437
+East Asia,China (Mainland),Jiangsu,Lianyungang,34.598,119.216,438
+East Asia,China (Mainland),Jiangsu,Nanjing,32.062,118.778,439
+East Asia,China (Mainland),Jiangsu,Nantong,32.03,120.875,440
+East Asia,China (Mainland),Jiangsu,Suqian,33.963,118.275,441
+East Asia,China (Mainland),Jiangsu,Suzhou,33.636,116.979,442
+East Asia,China (Mainland),Jiangsu,Wuxi,31.569,120.289,443
+East Asia,China (Mainland),Jiangsu,Xuzhou,34.204,117.284,444
+East Asia,China (Mainland),Jiangsu,Yancheng,36.799,116.744,445
+East Asia,China (Mainland),Jiangsu,Yangzhou,32.397,119.436,446
+East Asia,China (Mainland),Jiangsu,Zhenjiang,32.211,119.455,447
+East Asia,China (Mainland),Jiangsu,,,,448
+East Asia,China (Mainland),Jiangxi,Jiujiang,28.168,109.128,449
+East Asia,China (Mainland),Jiangxi,Nanchang,28.678,115.856,450
+East Asia,China (Mainland),Jiangxi,Shangrao,28.452,117.943,451
+East Asia,China (Mainland),Jiangxi,Xinyu,27.814,114.923,452
+East Asia,China (Mainland),Jiangxi,Yingtan,35.573,102.971,453
+East Asia,China (Mainland),Jiangxi,,,,454
+East Asia,China (Mainland),Jilin,Changchun,26.729,120.04,455
+East Asia,China (Mainland),Jilin,Panshi,43.141,126.027,456
+East Asia,China (Mainland),Jilin,Tonghua,41.725,125.939,457
+East Asia,China (Mainland),Jilin,Yanbian Korean Autonomous Prefecture,42.909,129.472,458
+East Asia,China (Mainland),Jilin,,,,459
+East Asia,China (Mainland),Liaoning,Benxi,41.289,123.765,460
+East Asia,China (Mainland),Liaoning,Dalian,38.912,121.602,461
+East Asia,China (Mainland),Liaoning,Linghai,41.167,121.355,462
+East Asia,China (Mainland),Liaoning,Shenyang,41.792,123.433,463
+East Asia,China (Mainland),Ningxia Hui Autonomous Region,Yinchuan,38.468,106.273,464
+East Asia,China (Mainland),Ningxia Hui Autonomous Region,,,,465
+East Asia,China (Mainland),Qinghai,Da Qaidam,37.833,95.3,466
+East Asia,China (Mainland),Qinghai,Xining,36.626,101.78,467
+East Asia,China (Mainland),Qinghai,Yushu Tibetan Autonomous Prefecture,34.033,94.417,468
+East Asia,China (Mainland),Qinghai,,,,469
+East Asia,China (Mainland),Shaanxi,Changzhi,36.184,113.105,470
+East Asia,China (Mainland),Shaanxi,Shangluo,33.87,109.941,471
+East Asia,China (Mainland),Shaanxi,Xi'an,34.342,108.94,472
+East Asia,China (Mainland),Shaanxi,Xiaoqinling,34.265,110.12,473
+East Asia,China (Mainland),Shaanxi,Yan'an,36.601,109.497,474
+East Asia,China (Mainland),Shaanxi,Yangling,34.272,108.079,475
+East Asia,China (Mainland),Shaanxi,Zhenan,40.158,124.428,476
+East Asia,China (Mainland),Shandong,Binzhou,37.367,118.017,477
+East Asia,China (Mainland),Shandong,Changyi,29.024,116.061,478
+East Asia,China (Mainland),Shandong,Dongying,37.449,118.645,479
+East Asia,China (Mainland),Shandong,Ji'nan,36.651,117.12,480
+East Asia,China (Mainland),Shandong,Jinan,36.668,116.997,481
+East Asia,China (Mainland),Shandong,Jining,35.399,116.591,482
+East Asia,China (Mainland),Shandong,Liaocheng,36.468,115.977,483
+East Asia,China (Mainland),Shandong,Linyi,35.063,118.343,484
+East Asia,China (Mainland),Shandong,Qingdao,36.065,120.38,485
+East Asia,China (Mainland),Shandong,Rizhao,35.428,119.455,486
+East Asia,China (Mainland),Shandong,Rongcheng,37.154,122.475,487
+East Asia,China (Mainland),Shandong,Shangqiu,34.45,115.65,488
+East Asia,China (Mainland),Shandong,Tai'an,36.2,117.088,489
+East Asia,China (Mainland),Shandong,Weifang,36.71,119.102,490
+East Asia,China (Mainland),Shandong,Weihai,37.509,122.114,491
+East Asia,China (Mainland),Shandong,Yantai,37.476,121.441,492
+East Asia,China (Mainland),Shandong,Zibo,36.791,118.063,493
+East Asia,China (Mainland),Shandong,Zouping,36.869,117.739,494
+East Asia,China (Mainland),Shandong,,,,495
+East Asia,China (Mainland),Shanghai Municipality,Pudong,31.131,121.719,496
+East Asia,China (Mainland),Shanghai Municipality,Shanghai,31.222,121.458,497
+East Asia,China (Mainland),Shanxi,Lüliang,37.518,111.144,498
+East Asia,China (Mainland),Shanxi,Taiyuan,30.711,118.4,499
+East Asia,China (Mainland),Shanxi,,,,500
+East Asia,China (Mainland),Sichuan,Chengdu,30.667,104.067,501
+East Asia,China (Mainland),Sichuan,Deyang,31.13,104.382,502
+East Asia,China (Mainland),Sichuan,Garzê Tibetan Autonomous Prefecture,30.049,101.962,503
+East Asia,China (Mainland),Sichuan,Mianyang,31.468,104.682,504
+East Asia,China (Mainland),Sichuan,Ngawa Tibetan and Qiang Autonomous Prefecture,31.899,102.225,505
+East Asia,China (Mainland),Sichuan,Yanyuan County,27.423,101.509,506
+East Asia,China (Mainland),Sichuan,Zigong,29.342,104.777,507
+East Asia,China (Mainland),Sichuan,,,,508
+East Asia,China (Mainland),Tianjin Municipality,Tianjin,39.142,117.177,509
+East Asia,China (Mainland),Tibet Autonomous Region,Lhasa,29.65,91.1,510
+East Asia,China (Mainland),Tibet Autonomous Region,Shigatse,29.267,88.881,511
+East Asia,China (Mainland),Tibet Autonomous Region,,,,512
+East Asia,China (Mainland),Xinjiang Uygur Autonomous Region,Hami,42.834,93.506,513
+East Asia,China (Mainland),Xinjiang Uygur Autonomous Region,Ili Kazakh Autonomous Prefecture,43.917,81.324,514
+East Asia,China (Mainland),Xinjiang Uygur Autonomous Region,Kashgar,39.471,75.99,515
+East Asia,China (Mainland),Xinjiang Uygur Autonomous Region,Shihezi,44.302,86.037,516
+East Asia,China (Mainland),Xinjiang Uygur Autonomous Region,Tumxuk,41.369,79.963,517
+East Asia,China (Mainland),Xinjiang Uygur Autonomous Region,Urumqi,43.81,87.6,518
+East Asia,China (Mainland),Xinjiang Uygur Autonomous Region,Ürümqi,43.801,87.6,519
+East Asia,China (Mainland),Xinjiang Uygur Autonomous Region,,,,520
+East Asia,China (Mainland),Yunnan,Dali,34.796,109.939,521
+East Asia,China (Mainland),Yunnan,Kunming,25.039,102.718,522
+East Asia,China (Mainland),Yunnan,Lincang,23.884,100.089,523
+East Asia,China (Mainland),Yunnan,Qujing,25.486,103.798,524
+East Asia,China (Mainland),Yunnan,Weixi,28.248,110.564,525
+East Asia,China (Mainland),Yunnan,Yunfu,22.928,112.04,526
+East Asia,China (Mainland),Yunnan,,,,527
+East Asia,China (Mainland),Zhejiang,Hangzhou,30.294,120.161,528
+East Asia,China (Mainland),Zhejiang,Huzhou,30.87,120.093,529
+East Asia,China (Mainland),Zhejiang,Jiashan,30.84,120.929,530
+East Asia,China (Mainland),Zhejiang,Jiaxing,30.752,120.75,531
+East Asia,China (Mainland),Zhejiang,Jinhua,26.538,99.917,532
+East Asia,China (Mainland),Zhejiang,Ningbo,29.878,121.549,533
+East Asia,China (Mainland),Zhejiang,Taizhou,32.491,119.908,534
+East Asia,China (Mainland),Zhejiang,Wenling,28.371,121.384,535
+East Asia,China (Mainland),Zhejiang,Wenzhou,27.999,120.667,536
+East Asia,China (Mainland),Zhejiang,Xinchang,29.502,120.899,537
+East Asia,China (Mainland),Zhejiang,Zhoushan,32.973,119.511,538
+East Asia,China (Mainland),Zhejiang,,,,539
+East Asia,China (Mainland),,Changhzhou,31.811,119.974,540
+East Asia,China (Mainland),,Panyu,22.937,113.384,541
+East Asia,China (Mainland),,Qiongzhong Li and Miao Autonomous Prefecture,19.033,109.838,542
+East Asia,China (Mainland),,,,,543
+Southeast Asia,East Timor,,Timor Sea,-11.324,128.033,544
+East Asia,Hong Kong,Hong Kong,Hong Kong,22.278,114.175,545
+South Asia,India,Andhra Pradesh,Hyderabad,17.384,78.456,546
+South Asia,India,Assam,,,,547
+South Asia,India,Dadra and Nagar Haveli and Daman and Diu,Daman,20.417,72.837,548
+South Asia,India,Delhi,New Delhi,28.636,77.224,549
+South Asia,India,Gujarat,Ahmedabad,23.026,72.587,550
+South Asia,India,Gujarat,Ambaji,24.331,72.852,551
+South Asia,India,Gujarat,Gandhinagar,23.217,72.683,552
+South Asia,India,Gujarat,Mehsana District,23.315,72.433,553
+South Asia,India,Gujarat,Rajkot,22.304,70.802,554
+South Asia,India,Gujarat,Sanand,22.992,72.377,555
+South Asia,India,Gujarat,Savli,22.562,73.222,556
+South Asia,India,Gujarat,Vadodara,22.299,73.208,557
+South Asia,India,Gujarat,,,,558
+South Asia,India,Haryana,Gurgaon,28.46,77.026,559
+South Asia,India,Haryana,Gurugram,28.459,77.027,560
+South Asia,India,Haryana,Panchkula,30.695,76.859,561
+South Asia,India,Haryana,Rewari,28.192,76.619,562
+South Asia,India,Karnataka,Bagalkot,16.187,75.696,563
+South Asia,India,Karnataka,Bangalore,12.967,77.587,564
+South Asia,India,Karnataka,Bengaluru,12.972,77.594,565
+South Asia,India,Kerala,Kochi,9.935,76.257,566
+South Asia,India,Kerala,Kottayam,9.587,76.521,567
+South Asia,India,Kerala,Thiruvananthapuram,8.486,76.949,568
+South Asia,India,Kerala,Thrissur,10.517,76.217,569
+South Asia,India,Kerala,Trivandrum,8.498,76.904,570
+South Asia,India,Madhya Pradesh,Indore,22.718,75.855,571
+South Asia,India,Madhya Pradesh,,,,572
+South Asia,India,Maharashtra,Gondia,21.455,80.196,573
+South Asia,India,Maharashtra,Mumbai,19.073,72.883,574
+South Asia,India,Maharashtra,Nagpur,21.146,79.085,575
+South Asia,India,Maharashtra,Pune,18.52,73.855,576
+South Asia,India,Maharashtra,Thane,19.215,72.978,577
+South Asia,India,Maharashtra,,,,578
+South Asia,India,National Capital Region,New Delhi,28.636,77.224,579
+South Asia,India,National Capital Region,,,,580
+South Asia,India,Punjab,Amritsar,31.622,74.875,581
+South Asia,India,Punjab,Ludhiana,30.904,75.854,582
+South Asia,India,Punjab,Mohali,,,583
+South Asia,India,Rajasthan,Jaipur,26.92,75.788,584
+South Asia,India,Tamil Nadu,Chennai,13.088,80.278,585
+South Asia,India,Tamil Nadu,Coimbatore,11.006,76.966,586
+South Asia,India,Telangana,Hyderabad,17.384,78.456,587
+South Asia,India,Telangana,Ramannapet,17.289,79.091,588
+South Asia,India,Telangana,,,,589
+South Asia,India,Uttar Pradesh,Etah,27.562,78.665,590
+South Asia,India,Uttar Pradesh,Jhansi,25.448,78.569,591
+South Asia,India,Uttar Pradesh,Noida,28.58,77.33,592
+South Asia,India,Uttar Pradesh,Raebareli,26.231,81.233,593
+South Asia,India,Uttarakhand,Dehradun,30.317,78.029,594
+South Asia,India,Uttarakhand,Haridwar,29.948,78.16,595
+South Asia,India,West Bengal,Kolkata,22.573,88.364,596
+South Asia,India,West Bengal,Uttar Dinajpur,25.981,88.051,597
+South Asia,India,,,,,598
+Southeast Asia,Indonesia,Aceh,,,,599
+Southeast Asia,Indonesia,Central Kalimantan,,,,600
+Southeast Asia,Indonesia,Central Sulawesi,Banggai Islands Regency,-0.956,122.628,601
+Southeast Asia,Indonesia,East Java,Gresik Regency ,-7.165,112.652,602
+Southeast Asia,Indonesia,East Java,Malang,-7.98,112.63,603
+Southeast Asia,Indonesia,East Java,Probolinggo,-7.754,113.216,604
+Southeast Asia,Indonesia,East Java,Surabaya,-7.249,112.751,605
+Southeast Asia,Indonesia,East Kalimantan,East Kutai Regency,0.943,116.985,606
+Southeast Asia,Indonesia,East Kalimantan,Kutai Basin,1.5,116.5,607
+Southeast Asia,Indonesia,East Kalimantan,Kutai Kartanegara Regency,-0.134,116.608,608
+Southeast Asia,Indonesia,East Kalimantan,West Kutai Regency,-0.405,115.852,609
+Southeast Asia,Indonesia,East Kalimantan,,,,610
+Southeast Asia,Indonesia,Jakarta,Jakarta,-6.215,106.845,611
+Southeast Asia,Indonesia,Jambi,,,,612
+Southeast Asia,Indonesia,Lampung,Bandar Lampung,-5.429,105.261,613
+Southeast Asia,Indonesia,North Maluku,Halmahera,1.312,128.485,614
+Southeast Asia,Indonesia,North Maluku,South Halmahera Regency,-1.511,127.724,615
+Southeast Asia,Indonesia,North Sumatra,Medan,3.583,98.667,616
+Southeast Asia,Indonesia,North Sumatra,,,,617
+Southeast Asia,Indonesia,Riau Islands,Batam,1.149,104.025,618
+Southeast Asia,Indonesia,South Kalimantan,,,,619
+Southeast Asia,Indonesia,South Sulawesi,,,,620
+Southeast Asia,Indonesia,South Sumatra,Palembang,-2.917,104.746,621
+Southeast Asia,Indonesia,South Sumatra,,,,622
+Southeast Asia,Indonesia,West Java,Bandung,-8.168,111.784,623
+Southeast Asia,Indonesia,West Nusa Tenggara,Sumbawa,8.738,118.117,624
+Southeast Asia,Indonesia,West Papua,Bintuni Bay,-2.333,133.417,625
+Southeast Asia,Indonesia,West Sulawesi,,,,626
+Southeast Asia,Indonesia,,Gresik Regency,-7.165,112.652,627
+Southeast Asia,Indonesia,,Strait of Malacca,1.255,102.532,628
+Southeast Asia,Indonesia,,,,,629
+East Asia,Japan,Aichi,Chita,34.986,136.853,630
+East Asia,Japan,Aichi,Ichinomiya,35.304,136.801,631
+East Asia,Japan,Aichi,Kariya,34.993,137.008,632
+East Asia,Japan,Aichi,Kasugai,35.245,136.986,633
+East Asia,Japan,Aichi,Kiyosu,35.213,136.85,634
+East Asia,Japan,Aichi,Nagakute,35.173,137.057,635
+East Asia,Japan,Aichi,Nagoya,35.181,136.906,636
+East Asia,Japan,Aichi,Oguchi,35.337,136.911,637
+East Asia,Japan,Aichi,Toyohashi,34.756,137.391,638
+East Asia,Japan,Aichi,Toyota,35.082,137.155,639
+East Asia,Japan,Aichi,Tsushima,35.178,136.719,640
+East Asia,Japan,Aomori,Kamikita District,40.885,141.254,641
+East Asia,Japan,Chiba,Chiba,33.647,104.782,642
+East Asia,Japan,Chiba,Narashino,35.681,140.024,643
+East Asia,Japan,Chiba,Narita,35.783,140.317,644
+East Asia,Japan,Fukuoka,Fukuoka,33.6,130.417,645
+East Asia,Japan,Fukuoka,Kitakyushu,33.882,130.872,646
+East Asia,Japan,Hiroshima,Aki,34.377,132.524,647
+East Asia,Japan,Hiroshima,Higashihiroshima,34.447,132.763,648
+East Asia,Japan,Hiroshima,Miyoshi,34.791,132.861,649
+East Asia,Japan,Hokkaido,Engaru,44.048,143.545,650
+East Asia,Japan,Hokkaido,Eniwa,42.894,141.576,651
+East Asia,Japan,Hokkaido,Kamikawa,43.84,142.771,652
+East Asia,Japan,Hokkaido,Kitami,43.803,143.891,653
+East Asia,Japan,Hokkaido,Monbetsu District,44.39,143.19,654
+East Asia,Japan,Hokkaido,Sapporo,43.065,141.354,655
+East Asia,Japan,Hokkaido,Shimokawa,44.245,142.677,656
+East Asia,Japan,Hokkaido,Yoichi District,43.195,140.784,657
+East Asia,Japan,Hyogo,Himeji,34.826,134.687,658
+East Asia,Japan,Hyogo,Kobe,34.69,135.173,659
+East Asia,Japan,Ibaraki,Kasama,36.383,140.267,660
+East Asia,Japan,Iwate,Oshu,39.139,141.168,661
+East Asia,Japan,Kagoshima,Aira,31.774,130.592,662
+East Asia,Japan,Kagoshima,Isa,32.067,130.612,663
+East Asia,Japan,Kagoshima,Satsumasendai,31.817,130.3,664
+East Asia,Japan,Kanagawa,Kawasaki,35.521,139.717,665
+East Asia,Japan,Kanagawa,Sagamihara,35.581,139.231,666
+East Asia,Japan,Kanagawa,Yokohama,35.433,139.65,667
+East Asia,Japan,Kanto,Tokyo,35.683,139.753,668
+East Asia,Japan,Kanto,,,,669
+East Asia,Japan,Kyoto,Kyoto,35.015,135.766,670
+East Asia,Japan,Kyoto,Nagaokakyo,34.925,135.68,671
+East Asia,Japan,Mie,Tsu,34.733,136.517,672
+East Asia,Japan,Miyagi,Igu District,37.878,140.765,673
+East Asia,Japan,Miyagi,Sendai,38.262,140.87,674
+East Asia,Japan,Nagano,Iida,35.478,137.834,675
+East Asia,Japan,Nagano,Tomi,36.369,138.35,676
+East Asia,Japan,Nagasaki,Minamishimabara,32.673,130.267,677
+East Asia,Japan,Nara,Nara,34.687,135.815,678
+East Asia,Japan,Niigata,Sado,38.025,138.359,679
+East Asia,Japan,Oita,Hayami District,33.369,131.542,680
+East Asia,Japan,Oita,Hiji,33.371,131.53,681
+East Asia,Japan,Osaka,Kadoma,34.734,135.597,682
+East Asia,Japan,Osaka,Osaka,34.694,135.502,683
+East Asia,Japan,Osaka,Shijonawate,34.739,135.656,684
+East Asia,Japan,Saitama,Gyoda,36.144,139.467,685
+East Asia,Japan,Shizuoka,Fujinomiya,35.276,138.611,686
+East Asia,Japan,Shizuoka,Izu,34.972,138.946,687
+East Asia,Japan,Shizuoka,Shizuoka,34.965,138.382,688
+East Asia,Japan,Tokyo,Akishima,35.713,139.359,689
+East Asia,Japan,Tokyo,Ginza,35.671,139.765,690
+East Asia,Japan,Tokyo,Machida,35.54,139.451,691
+East Asia,Japan,Tokyo,Minato,35.652,139.736,692
+East Asia,Japan,Tokyo,Shibuya,35.668,139.695,693
+East Asia,Japan,Tokyo,Shinjuku,35.702,139.708,694
+East Asia,Japan,Tokyo,Tokyo,35.69,139.692,695
+East Asia,Japan,Tottori,Saihaku District,35.36,133.451,696
+East Asia,Japan,Yamagata,Sakata,38.922,139.834,697
+East Asia,Japan,Yamaguchi,Shimonoseki,34.152,130.968,698
+East Asia,Japan,Yamaguchi,Takayama,36.146,137.252,699
+East Asia,Japan,Yamaguchi,Ube,34.001,131.226,700
+East Asia,Japan,,Kamikita District,40.774,141.261,701
+East Asia,Japan,,Saihaku District,35.363,133.43,702
+East Asia,Japan,,,,,703
+Southeast Asia,Laos,Luang Namtha,Luang Namtha,20.949,101.402,704
+Southeast Asia,Laos,Oudomxay,,,,705
+Southeast Asia,Laos,Vientiane Prefecture,Vientiane,17.967,102.6,706
+Southeast Asia,Laos,Vientiane Prefecture,Xaythany,18.858,102.526,707
+Southeast Asia,Laos,,,,,708
+East Asia,Macau,"Macau, SAR",Macau,22.166,113.568,709
+Southeast Asia,Malaysia,Johor,Johor Bahru,1.466,103.758,710
+Southeast Asia,Malaysia,Johor,Mersing District,2.431,103.83,711
+Southeast Asia,Malaysia,Kedah,Alor Setar,6.121,100.36,712
+Southeast Asia,Malaysia,Kedah,Kulim District,5.365,100.562,713
+Southeast Asia,Malaysia,Kedah,Langkawi,6.35,99.8,714
+Southeast Asia,Malaysia,Kelantan,Kota Bharu,6.124,102.243,715
+Southeast Asia,Malaysia,Kuala Lumpur,Kuala Lumpur,3.141,101.687,716
+Southeast Asia,Malaysia,Malacca,Malacca City,2.196,102.24,717
+Southeast Asia,Malaysia,Pahang,Ulu Jelai,4.227,101.616,718
+Southeast Asia,Malaysia,Pahang,Ulu Lepar District,3.917,103.083,719
+Southeast Asia,Malaysia,Penang,George Town,-41.106,146.826,720
+Southeast Asia,Malaysia,Penang,Nibong Tebal,5.176,100.481,721
+Southeast Asia,Malaysia,Penang,Penang,-9.845,120.246,722
+Southeast Asia,Malaysia,Penang,Southwest Penang Island District,5.317,100.217,723
+Southeast Asia,Malaysia,Penang,,,,724
+Southeast Asia,Malaysia,Perak,,,,725
+Southeast Asia,Malaysia,Perlis,Arau,6.433,100.269,726
+Southeast Asia,Malaysia,Sabah,Kota Kinabalu,5.975,116.072,727
+Southeast Asia,Malaysia,Sarawak,Bau,-8.562,118.972,728
+Southeast Asia,Malaysia,Sarawak,Bintulu District,3.191,113.09,729
+Southeast Asia,Malaysia,Sarawak,Kuching,1.55,110.333,730
+Southeast Asia,Malaysia,Selangor,Hulu Langat District,3.083,101.833,731
+Southeast Asia,Malaysia,Selangor,Petaling District,3.083,101.583,732
+Southeast Asia,Malaysia,Selangor,Petaling Jaya,3.107,101.607,733
+Southeast Asia,Malaysia,Selangor,Putrajaya,2.939,101.685,734
+Southeast Asia,Malaysia,Selangor,Semenyih,2.952,101.843,735
+Southeast Asia,Malaysia,Selangor,Sepang District,2.817,101.733,736
+Southeast Asia,Malaysia,Selangor,Seri Kembangan,3.021,101.705,737
+Southeast Asia,Malaysia,Selangor,Shah Alam,3.085,101.533,738
+Southeast Asia,Malaysia,,Lipis District,4.18,102.05,739
+Southeast Asia,Malaysia,,Mersing District,2.43,103.83,740
+Southeast Asia,Malaysia,,,,,741
+South Asia,Maldives,Baa Atoll,Landaa Giraavaru,5.286,73.112,742
+South Asia,Maldives,Gaafu Dhaalu Atoll,Konotta,0.463,73.155,743
+South Asia,Maldives,Kaafu Atoll,Kuda Huraa,4.328,73.597,744
+South Asia,Maldives,,Dhevvadhoo,0.559,73.244,745
+East Asia,Mongolia,Arkhangai,,47.474,101.463,746
+East Asia,Mongolia,Bayankhongor,Bayantsagaan,48.732,100.76,747
+East Asia,Mongolia,Bayankhongor,,46.186,100.715,748
+East Asia,Mongolia,Bulgan,,48.824,103.521,749
+East Asia,Mongolia,Dornod,,48.073,114.535,750
+East Asia,Mongolia,Dornogovi,Airag,45.799,109.313,751
+East Asia,Mongolia,Dornogovi,Mandakh,44.407,108.25,752
+East Asia,Mongolia,Dundgovi,,45.759,106.277,753
+East Asia,Mongolia,Govi-Altai,,46.371,96.255,754
+East Asia,Mongolia,Khentii,Norovlin,48.693,111.994,755
+East Asia,Mongolia,Khentii,,47.319,110.654,756
+East Asia,Mongolia,Khovd,Bulgan,44.783,98.65,757
+East Asia,Mongolia,Khövsgöl,Burenkhaan,49.501,99.157,758
+East Asia,Mongolia,Ömnögovi,Gurvan tes ,44.4,101.567,759
+East Asia,Mongolia,Ömnögovi,Khanbogd,43.197,107.195,760
+East Asia,Mongolia,Ömnögovi,Mandal-Ovoo,44.367,104.3,761
+East Asia,Mongolia,Ömnögovi,,43.566,104.423,762
+East Asia,Mongolia,Selenge,Mandal,49.9,99.433,763
+East Asia,Mongolia,Selenge,Tüshig ,50.324,105.043,764
+East Asia,Mongolia,Sukhbaatar,,48.052,106.976,765
+East Asia,Mongolia,Ulaanbaatar,Ulaanbaatar,47.908,106.883,766
+East Asia,Mongolia,Uvs,Naranbulag,49.367,92.567,767
+East Asia,Mongolia,Zavkhan,,47.745,96.853,768
+East Asia,Mongolia,,,,,769
+Southeast Asia,Myanmar,Sagaing,Monywa,22.109,95.136,770
+Southeast Asia,Myanmar,Yangon,Yangon,16.805,96.156,771
+South Asia,Nepal,,,,,772
+Oceania,New Caledonia,South Province,Nouméa,-22.274,166.449,773
+Oceania,New Zealand,Auckland,Auckland,-36.849,174.763,774
+Oceania,New Zealand,Bay of Plenty,Rotorua,-38.139,176.245,775
+Oceania,New Zealand,Canterbury,Christchurch,-43.53,172.64,776
+Oceania,New Zealand,Canterbury,Oxford,-43.29,172.19,777
+Oceania,New Zealand,Canterbury,,,,778
+Oceania,New Zealand,Gisborne,Gisborne,-38.653,177.998,779
+Oceania,New Zealand,Hawke's Bay,Hastings,-38.3,145.183,780
+Oceania,New Zealand,Manawatu-Wanganui,Wanganui,-39.933,175.05,781
+Oceania,New Zealand,Marlborough,Blenheim,-41.516,173.953,782
+Oceania,New Zealand,Southland,Gore,-46.099,168.946,783
+Oceania,New Zealand,Southland,Invercargill,-46.4,168.35,784
+Oceania,New Zealand,Southland,,,,785
+Oceania,New Zealand,Taranaki,Motunui,-38.983,174.3,786
+Oceania,New Zealand,Taranaki,New Plymouth,-39.067,174.083,787
+Oceania,New Zealand,Taranaki,Taranaki Basin,-39.306,174.045,788
+Oceania,New Zealand,Taranaki,Waitara,-33.711,151.103,789
+Oceania,New Zealand,Taranaki,,,,790
+Oceania,New Zealand,Wellington,Porirua,-41.133,174.85,791
+Oceania,New Zealand,Wellington,Wellington,-32.556,148.945,792
+Oceania,New Zealand,,East Coast Basin,-40.899,176.221,793
+Oceania,New Zealand,,,,,794
+South Asia,Pakistan,Islamabad Capital Territory,Islamabad,33.721,73.043,795
+South Asia,Pakistan,Punjab,Bahawalpur,29.398,71.675,796
+South Asia,Pakistan,Punjab,Lahore,31.558,74.351,797
+South Asia,Pakistan,Punjab,,,,798
+South Asia,Pakistan,Sindh,Karachi,24.861,67.01,799
+South Asia,Pakistan,,,,,800
+Oceania,Papua New Guinea,National Capital District,Port Moresby,-9.477,147.151,801
+Oceania,Papua New Guinea,,,,,802
+Southeast Asia,Philippines,Abra,,,,803
+Southeast Asia,Philippines,Agusan del Norte,Butuan,8.949,125.544,804
+Southeast Asia,Philippines,Bataan,Morong,28.489,109.848,805
+Southeast Asia,Philippines,Batangas,Batangas City,13.757,121.058,806
+Southeast Asia,Philippines,Batangas,Lobo,13.648,121.211,807
+Southeast Asia,Philippines,Batangas,Taysan,13.87,121.097,808
+Southeast Asia,Philippines,Batangas,,,,809
+Southeast Asia,Philippines,Benguet,Itogon,16.364,120.677,810
+Southeast Asia,Philippines,Bohol,Tagbilaran,9.656,123.852,811
+Southeast Asia,Philippines,Cagayan,Tuguegarao,17.616,121.723,812
+Southeast Asia,Philippines,Camarines Norte,Labo,14.153,122.83,813
+Southeast Asia,Philippines,Cavite,Dasmarinas,14.329,120.937,814
+Southeast Asia,Philippines,Cebu,Cebu City,10.317,123.891,815
+Southeast Asia,Philippines,Cebu,Lapu-Lapu,10.31,123.949,816
+Southeast Asia,Philippines,Cebu,Liloan,11.044,124.551,817
+Southeast Asia,Philippines,Compostela Valley,,,,818
+Southeast Asia,Philippines,Eastern Samar,,,,819
+Southeast Asia,Philippines,Isabela,Santiago,16.689,121.548,820
+Southeast Asia,Philippines,Laguna,Santa Rosa,14.314,121.114,821
+Southeast Asia,Philippines,Leyte,Tacloban,11.243,125.005,822
+Southeast Asia,Philippines,Masbate,,,,823
+Southeast Asia,Philippines,National Capital Region,Las Piñas,14.451,120.983,824
+Southeast Asia,Philippines,National Capital Region,Makati,14.55,121.033,825
+Southeast Asia,Philippines,National Capital Region,Mandaluyong,14.583,121.037,826
+Southeast Asia,Philippines,National Capital Region,Manila,14.6,120.983,827
+Southeast Asia,Philippines,National Capital Region,Pasay,14.538,121,828
+Southeast Asia,Philippines,National Capital Region,Pasig,14.587,121.061,829
+Southeast Asia,Philippines,National Capital Region,Quezon City,14.649,121.051,830
+Southeast Asia,Philippines,National Capital Region,San Juan,14.604,121.032,831
+Southeast Asia,Philippines,National Capital Region,Taguig,14.524,121.079,832
+Southeast Asia,Philippines,National Capital Region,,,,833
+Southeast Asia,Philippines,Negros Oriental,Dumaguete,9.307,123.303,834
+Southeast Asia,Philippines,Palawan,Busuanga,12.158,119.918,835
+Southeast Asia,Philippines,Palawan,Northwest Palawan Basin,10.9,119,836
+Southeast Asia,Philippines,Palawan,,,,837
+Southeast Asia,Philippines,Pampanga,Clark Freeport Zone,15.184,120.543,838
+Southeast Asia,Philippines,Pangasinan,Dagupan,17.7,121.504,839
+Southeast Asia,Philippines,Samar,Calbayog,12.067,124.596,840
+Southeast Asia,Philippines,Samar,,,,841
+Southeast Asia,Philippines,South Cotabato,T'Boli,6.2,124.833,842
+Southeast Asia,Philippines,Surigao del Norte,Surigao City,9.789,125.495,843
+Southeast Asia,Philippines,Tarlac,Tarlac City,15.48,120.598,844
+Southeast Asia,Philippines,Zamboanga del Norte,Baliguian,7.809,122.144,845
+Southeast Asia,Philippines,Zamboanga del Norte,Dipolog,8.567,123.335,846
+Southeast Asia,Philippines,Zamboanga del Norte,,,,847
+Southeast Asia,Philippines,Zamboanga del Sur,Bayog,7.867,123.067,848
+Southeast Asia,Philippines,,Central Visayas,9.817,124.064,849
+Southeast Asia,Philippines,,Mindanao Island,8,125,850
+Southeast Asia,Philippines,,Zamboanga Peninsula,6.91,122.074,851
+Southeast Asia,Philippines,,,,,852
+Southeast Asia,Singapore,Singapore,Singapore,1.29,103.85,853
+East Asia,South Korea,Busan,Busan,35.102,129.03,854
+East Asia,South Korea,Daegu,Daegu,35.836,128.557,855
+East Asia,South Korea,Daejeon,Daejeon,36.341,127.39,856
+East Asia,South Korea,Gangwon,,,,857
+East Asia,South Korea,Gwangju,Gwangju,37.41,127.257,858
+East Asia,South Korea,Gyeonggi,Hwaseong,37.207,126.817,859
+East Asia,South Korea,Gyeonggi,Seongnam,37.404,127.119,860
+East Asia,South Korea,Gyeonggi,Yongin,37.236,127.209,861
+East Asia,South Korea,Gyeonggi,,,,862
+East Asia,South Korea,Gyeonggi-do,Ansan,37.324,126.822,863
+East Asia,South Korea,Gyeonggi-do,Anyang,36.096,114.383,864
+East Asia,South Korea,Gyeonggi-do,Gimpo,37.624,126.714,865
+East Asia,South Korea,Gyeonggi-do,Seongnam ,37.445,127.139,866
+East Asia,South Korea,Jeju,Seogwipo,33.253,126.562,867
+East Asia,South Korea,North Gyeongsang,Pohang,36.049,129.371,868
+East Asia,South Korea,North Gyeongsang,Yeongju,36.822,128.631,869
+East Asia,South Korea,North Jeolla,Gunsan,35.979,126.711,870
+East Asia,South Korea,North Jeolla,Jeonju,35.833,127.125,871
+East Asia,South Korea,Sejong,Sejong,36.508,127.256,872
+East Asia,South Korea,Seoul,Incheon,37.454,126.682,873
+East Asia,South Korea,Seoul,Seoul,37.566,126.978,874
+East Asia,South Korea,South Chungcheong,Asan,36.784,127.004,875
+East Asia,South Korea,South Chungcheong,Seosan,36.782,126.452,876
+East Asia,South Korea,South Gyeongsang,Geoje ,34.814,128.706,877
+East Asia,South Korea,South Jeolla,Gwangju,35.16,126.827,878
+East Asia,South Korea,South Jeolla,Gwangyang,34.941,127.696,879
+East Asia,South Korea,South Jeolla,Yeosu,34.761,127.662,880
+East Asia,South Korea,Ulsan,Ulsan,35.537,129.317,881
+East Asia,South Korea,,Naju-si,35.033,126.717,882
+East Asia,South Korea,,Seongnam,37.439,127.138,883
+East Asia,South Korea,,,,,884
+South Asia,Sri Lanka,Eastern,Trincomalee,8.578,81.229,885
+South Asia,Sri Lanka,Western Province,Sri Jayawardenepura Kotte,6.883,79.907,886
+South Asia,Sri Lanka,,,,,887
+East Asia,Taiwan,Hsinchu City,Hsinchu City,24.804,120.969,888
+East Asia,Taiwan,Kaohsiung City,Kaohsiung City,22.616,120.313,889
+East Asia,Taiwan,Kaoshiung,Kaoshiung,22.628,120.296,890
+East Asia,Taiwan,New Taipei City,New Taipei City,25.011,121.446,891
+East Asia,Taiwan,Taichung City,Taichung City,24.147,120.684,892
+East Asia,Taiwan,Tainan City,Tainan City,32.762,120.269,893
+East Asia,Taiwan,Taipei City,Taipei City,25.048,121.532,894
+East Asia,Taiwan,Taoyuan,Taoyuan City,24.994,121.297,895
+East Asia,Taiwan,,,,,896
+Southeast Asia,Thailand,Bangkok Metropolis,Bangkok,13.754,100.501,897
+Southeast Asia,Thailand,Chanthaburi,,,,898
+Southeast Asia,Thailand,Chiang Mai,Chiang Mai,18.79,98.985,899
+Southeast Asia,Thailand,Chiang Rai,Chiang Rai,19.909,99.832,900
+Southeast Asia,Thailand,Mae Hong Son,Mae Sariang,18.159,97.934,901
+Southeast Asia,Thailand,Nakhon Si Thammarat,Nakhon Si Thammarat,8.433,99.967,902
+Southeast Asia,Thailand,Nakon Ratchasima,Dan Khun Thot,15.209,101.771,903
+Southeast Asia,Thailand,Phra Nakhon Si Ayutthaya,Ayutthaya,14.352,100.577,904
+Southeast Asia,Thailand,Rayong,Pluak Daeng,12.971,101.215,905
+Southeast Asia,Thailand,Rayong,,,,906
+Southeast Asia,Thailand,Samut Sakhon,Samut Sakhon,,,907
+Southeast Asia,Thailand,Satun,,,,908
+Southeast Asia,Thailand,,,,,909
+Southeast Asia,Vietnam,Bà Ria-Vung Tàu,Vung Tau,10.346,107.084,910
+Southeast Asia,Vietnam,Bà Ria-Vung Tàu,Xuyên Môc District,10.633,107.417,911
+Southeast Asia,Vietnam,Bình Duong,Tân Uyên District,11.133,106.833,912
+Southeast Asia,Vietnam,Can Tho,Can Tho,10.037,105.788,913
+Southeast Asia,Vietnam,Da Nang,Da Nang,16.068,108.221,914
+Southeast Asia,Vietnam,Dak Lak,Buôn Ma Thuôt,12.667,108.038,915
+Southeast Asia,Vietnam,Dong Nai,Biên Hòa,10.945,106.824,916
+Southeast Asia,Vietnam,Ha Noi,Ha Noi,21.028,105.854,917
+Southeast Asia,Vietnam,Hai Phong,Hai Phong,20.865,106.683,918
+Southeast Asia,Vietnam,Ho Chi Minh City,Ho Chi Minh City,10.823,106.63,919
+Southeast Asia,Vietnam,Khánh Hòa,Nha Trang,12.245,109.194,920
+Southeast Asia,Vietnam,Lam Dong,Lien Nghia,11.729,108.373,921
+Southeast Asia,Vietnam,Ninh Thuan,Thap Cham,11.567,108.983,922
+Southeast Asia,Vietnam,Quang Nam,Diên Bàn District,15.899,108.199,923
+Southeast Asia,Vietnam,Quang Nam,Hoi An,15.879,108.335,924
+Southeast Asia,Vietnam,Quang Nam,Phú Ninh District,15.567,108.4,925
+Southeast Asia,Vietnam,Quang Nam,Phước Sơn District,15.417,107.833,926
+Southeast Asia,Vietnam,Son La,Bac Yên District,21.231,104.395,927
+Southeast Asia,Vietnam,Tay Ninh,Tay Ninh,11.31,106.098,928
+Southeast Asia,Vietnam,Thái Nguyên,Dai Tù District,21.632,105.611,929
+Southeast Asia,Vietnam,Thanh Hóa,Thanh Hóa,19.8,105.767,930
+Southeast Asia,Vietnam,Thùa Thiên-Hue,Phú Lôc District,16.25,107.917,931
+Southeast Asia,Vietnam,Tien Giang,My Tho,10.36,106.36,932
+Southeast Asia,Vietnam,,Cuu Long Basin,10.224,107.022,933
+Southeast Asia,Vietnam,,,,,934
+Southeast Asia,,,,,,935
