@@ -17,12 +17,13 @@
 	font-style: normal; }
 
 html, body {
-	font-family: Avenir, sans-serif; }
+	font-family: Avenir, sans-serif;
+	margin: 0;
+	padding: 0; }
 	
 svg {
 	background-color: #fbfbfb;
-	max-width: 99%;
-	max-height: 99%; }
+	width: 100%; }
 svg path {
 	stroke-linecap: round; 
 	stroke-linejoin : round; }
@@ -35,7 +36,7 @@ svg #countries path#CAN {
 svg #graticules path {
 	fill: none;
 	stroke: #ccc;
-	stroke-width: 0.25; }
+	stroke-width: 0.5; }
 svg #investments path {
 	fill: none;
 	opacity: 0.25;
@@ -52,12 +53,17 @@ svg g#cities g.city circle.outbound {
 svg #meta #year {
 	alignment-baseline: baseline;
 	font-size: 50px; }
-	
 
-	
-input[type="range"] {
+#control-panel {
+	display: block;
+	background: rgba(255,255,255,0.75);
+	padding: 10px; 
+	position: fixed;
+	bottom: 0;
+	right: 0; }
+
+#control-panel input[type="range"] {
   appearance: none;
   width: 700px;
   height: 5px; 
-  background: #d3d3d3;
-}
+  background: #d3d3d3; }

@@ -11,8 +11,8 @@ import { zoom } from 'd3-zoom'
 import { timeParse, timeFormat } from 'd3-time-format'
 import { timeMonth } from 'd3-time'
 
-const width = 1000
-const height = 600
+var width, height
+window.addEventListener('resize',setMapSize)
 
 // map centered on vancouver
 const defaultCenter = [-123,49]
@@ -30,6 +30,7 @@ const yearQuarter = timeFormat('%Y-%q')
 updateProjection()
 
 window.onload = async function(){
+	setMapSize()
 	setupListeners()
 	loadBasemap()
 	
@@ -66,6 +67,13 @@ window.onload = async function(){
 		.on('input',timeSlid)
 	select('#year').text(yearQuarter(firstMonth))
 	updateTime(firstMonth)
+}
+
+function setMapSize(){
+	[ width, height ] = [ window.innerWidth, window.innerHeight ]
+	updateProjection()
+	select('svg#map').attr('width',width).attr('height',height)
+	select('svg#map g#meta text').attr('y',height-2)
 }
 
 function setupListeners(){

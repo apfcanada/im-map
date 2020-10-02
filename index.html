@@ -11,7 +11,7 @@
 		<script src="bundle.js"></script>
 	</head>
 	<body>
-		<svg id="map" width="1000" height="600">
+		<svg id="map" height="600">
 			<g id="projected-map-elements">
 				<g id="graticules"></g>
 				<g id="countries"></g>
@@ -19,13 +19,15 @@
 				<g id="investments"></g>
 			</g>
 			<g id="meta">
-				<text id="year" x="0" y="598"><text>
+				<text id="year" x="0"><text>
 			</g>
 		</svg>
-		<div class="slider-container">
-			Slide to step through time:<br>
+		<div id="control-panel">
+			<label for="time-slider">Slide to step through time</label>
+			<br>
 			<input type="range" min="0" value="0" step="3" id="time-slider"/>
+			<br>
+			<button id="start-stop">Start animation</button>
 		</div>
-		<button id="start-stop">Start animation</button>
 	</body>
 </html>

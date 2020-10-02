@@ -6564,8 +6564,8 @@
     return locale;
   }
 
-  const width = 1000;
-  const height = 600;
+  var width, height;
+  window.addEventListener('resize',setMapSize);
 
   // map centered on vancouver
   const defaultCenter = [-123,49];
@@ -6583,6 +6583,7 @@
   updateProjection();
 
   window.onload = async function(){
+  	setMapSize();
   	setupListeners();
   	loadBasemap();
   	
@@ -6620,6 +6621,13 @@
   	select('#year').text(yearQuarter(firstMonth));
   	updateTime(firstMonth);
   };
+
+  function setMapSize(){
+  	[ width, height ] = [ window.innerWidth, window.innerHeight ];
+  	updateProjection();
+  	select('svg#map').attr('width',width).attr('height',height);
+  	select('svg#map g#meta text').attr('y',height-2);
+  }
 
   function setupListeners(){
   	select('svg#map')
